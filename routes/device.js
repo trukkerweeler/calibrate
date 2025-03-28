@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
             }
         // console.log('Connected to DB');
 
-        const query = `select * from DEVICE`;
+        const query = `select * from DEVICES`;
         
         connection.query(query, (err, rows, fields) => {
             if (err) {
@@ -31,7 +31,7 @@ router.get('/', (req, res) => {
                 res.sendStatus(500);
                 return;
             }
-            if (length(rows) == 0) {
+            if (rows.length == 0) {
                 res.json({message: "No records found"});
             } else {
                 res.json(rows);

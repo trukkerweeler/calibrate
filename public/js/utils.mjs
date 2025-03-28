@@ -53,8 +53,8 @@ export async function loadHeaderFooter() {
   const headerElement = document.querySelector("#header");
   let footerTemplate = await loadTemplate("/partials/footer.html");
   const footerElement = document.querySelector("#footer");
-  const year = new Date().getFullYear();
-  footerTemplate = footerTemplate.replace("{{year}}", year);
+  const copyrightYear = new Date().getFullYear();
+  footerTemplate = footerTemplate.replace("{{copyrightYear}}", copyrightYear);
 
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
