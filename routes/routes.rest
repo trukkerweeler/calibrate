@@ -1,2 +1,23 @@
 GET http://localhost:3010/device
 ###
+
+POST http://localhost:3010/device/create
+Content-Type: application/json
+
+{
+  "CREATE_BY": "TKENT",
+  "CREATE_DATE": "2025-03-29",
+    "DEVICE_ID": "TEST",
+    "DEVICE_TYPE": "test",
+    "MAJOR_LOCATION": "qa",
+    "MANUFACTURER_NAME": "M",
+    "MINOR_LOCATION": "cab3",
+    "MODEL": "123",
+    "NAME": "test",
+    "NEXT_DATE": "2025-03-31",
+    "PURCHASE_DATE": "2025-03-29",
+    "PURCHASE_PRICE": "1.11",
+    "SERIAL_NUMBER": "001",
+    "STATUS": "A"
+}
+###

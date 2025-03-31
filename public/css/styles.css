@@ -1,3 +1,53 @@
+
+body {
+    font-family: 'Arial', sans-serif; /* Change to Arial font */
+    background-color: #f4f4f4; /* Light gray background */
+    color: #333; /* Dark gray text color */
+    margin: 0;
+    padding: 0;
+}
+
+.btn{ 
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 15px; /* Padding for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 14px; /* Font size for the button text */
+    border-radius: 5px; /* Rounded corners for the button */
+    margin-left: 1rem;
+}
+
+.btn-cancel {
+    background-color: #f44336; /* Red background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 15px; /* Padding for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 14px; /* Font size for the button text */
+    border-radius: 5px; /* Rounded corners for the button */
+}
+
+.btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+.page-header {
+    font-style: italic;
+    color: #4CAF50; /* Green color for the header */
+    margin-left: 1rem;
+}
+
+.page-header-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Center items vertically */
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+#filterInput {
+    margin-bottom: 10px;
+}
 .table {
     width: 100%;
     border-collapse: collapse;
@@ -52,4 +102,116 @@
 }
 .table .btn-danger:hover {
     background-color: #e53935;
+}
+.past-date {
+    /* background-color: #f44336; */
+    color: #e53935
+}
+.table .past-date a {
+    color: #e53935;
+
+}
+.expanded-kerning {
+    letter-spacing: 2.0em;
+    color: #4CAF50;
+    text-align: center;
+}
+
+nav {
+    background-color: black;  /* Black ribbon background */
+    padding: 10px 0;          /* Adds some space above and below */
+    width: 100%;              /* Ensures it spans the full screen */
+}
+
+nav ul {
+    list-style: none;         /* Removes bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex;            /* Aligns items in a row */
+    justify-content: center;  /* Centers the items (optional) */
+}
+
+nav ul li {
+    margin: 0 20px;           /* Spaces out items */
+}
+
+nav ul li a {
+    color: white;             /* White text */
+    text-decoration: none;    /* Removes underline */
+    font-size: 18px;          /* Adjusts text size */
+    font-weight: bold;        /* Makes text bold */
+    padding: 10px 15px;       /* Adds spacing for better clickability */
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    background-color: #333;   /* Darker background on hover */
+    border-radius: 5px;       /* Optional: Adds rounded corners */
+}
+
+.sections-div {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); Responsive grid */
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 30px; /* Horizontal gap: 20px, Vertical gap: 30px */
+    margin: 20px; /* Margin around the grid */
+    padding: 20px; /* Padding inside the grid */
+    background-color: #fff; /* White background for the grid */
+    border-radius: 8px; /* Rounded corners for the grid */
+}
+
+.sections-div section {
+    border: #333 solid 1px; /* Border around each section */
+    border-radius: 8px; /* Rounded corners for each section */
+}
+
+.section-header-edit {
+    font-size: 18px; /* Larger font size for section headers */
+    margin-top: 0px; /* Space above the header */
+    margin-bottom: 10px; /* Space below the header */
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.section-header-edit button {
+    background-color: grey; /* Grey button */ color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 15px; /* Padding for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 14px; /* Font size for the button text */
+    border-radius: 5px; /* Rounded corners for the button */
+    align-self: center;
+}
+
+.device-info-field {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 10px 0; /* Padding for the field */
+}
+
+#edit-device-form, #create-device-form {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+#edit-device-form label {
+    margin-bottom: 5px; /* Space below each label */
+}
+
+dialog {
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside the dialog */
+    background-color: #fff; /* White background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+@media (max-width: 400px) {
+    .sections-div {
+        grid-template-columns: 1fr;
+    }
 }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devices</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header id="header"></header>
+    <nav></nav>
+    <main id="main-content">
+    
+    <dialog id="edit-device-dialog" class="dialog">
+        <form id="edit-device-form">
+            <h2>Edit Device Record</h2>
+            <label for="edit-device-id">Device ID:</label>
+            <input type="text" id="edit-device-id" name="DEVICE_ID" required readonly>
+            
+            <label for="edit-name">Name:</label>
+            <input type="text" id="edit-device-name" name="NAME" required>
+            
+            <label for="edit-device-type">Device Type:</label>
+            <input type="text" id="edit-device-type" name="DEVICE_TYPE">
+            
+            <label for="edit-manufacturer-name">Manufacturer Name:</label>
+            <input type="text" id="edit-manufacturer-name" name="MANUFACTURER_NAME">
+            
+            <label for="edit-model">Model:</label>
+            <input type="text" id="edit-model" name="MODEL">
+            
+            <label for="edit-serial-number">Serial Number:</label>
+            <input type="text" id="edit-serial-number" name="SERIAL_NUMBER">
+            
+            <label for="edit-major-location">Major Location:</label>
+            <input type="text" id="edit-major-location" name="MAJOR_LOCATION">
+            
+            <label for="edit-minor-location">Minor Location:</label>
+            <input type="text" id="edit-minor-location" name="MINOR_LOCATION">
+            
+            <label for="edit-purchase-date">Purchase Date:</label>
+            <input type="date" id="edit-purchase-date" name="PURCHASE_DATE">
+            
+            <label for="edit-purchase-price">Purchase Price:</label>
+            <input type="number" id="edit-purchase-price" name="PURCHASE_PRICE" step="0.01">
+
+            <label for="edit-status">Status:</label>
+            <select id="edit-status" name="STATUS" required>
+                <option value="A">Active</option>
+                <option value="I">Inactive</option>
+            </select>
+            
+            <div class="dialog-actions">
+                <button type="submit">Save</button>
+                <button type="button" id="cancel-edit-dialog">Cancel</button>
+            </div>
+        </form>
+    </dialog>
+    </main>
+    <footer id="footer"></footer>
+</body>
+    <script type="module" src="js/device.js"></script>
+</html>

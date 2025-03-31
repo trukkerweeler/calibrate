@@ -1,6 +1,6 @@
 {
-  "name": "ciqms",
-  "version": "1.0.2",
+  "name": "calibration",
+  "version": "0.0.1",
   "description": "",
   "main": "server.js",
   "scripts": {
