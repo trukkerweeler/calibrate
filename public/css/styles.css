@@ -32,9 +32,13 @@ body {
     background-color: #45a049; /* Darker green on hover */
 }
 .page-header {
+    grid-template-rows: auto; /* Auto height for rows */
+    align-items: center; /* Center items vertically */
     font-style: italic;
     color: #4CAF50; /* Green color for the header */
     margin-left: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
 .page-header-div {
@@ -44,6 +48,7 @@ body {
     margin-left: 1rem;
     margin-right: 1rem;
 }
+
 
 #filterInput {
     margin-bottom: 10px;
@@ -115,6 +120,7 @@ body {
     letter-spacing: 2.0em;
     color: #4CAF50;
     text-align: center;
+    margin-left: 1rem;
 }
 
 nav {
@@ -155,6 +161,7 @@ nav ul li a:hover {
     grid-template-columns: 1fr 1fr;
     gap: 20px 30px; /* Horizontal gap: 20px, Vertical gap: 30px */
     margin: 20px; /* Margin around the grid */
+    margin-top: 0px; /* No margin on top */
     padding: 20px; /* Padding inside the grid */
     background-color: #fff; /* White background for the grid */
     border-radius: 8px; /* Rounded corners for the grid */
@@ -193,7 +200,7 @@ nav ul li a:hover {
     padding: 10px 0; /* Padding for the field */
 }
 
-#edit-device-form, #create-device-form {
+#edit-device-form, #create-device-form, #create-calibration-form {
     display: flex;
     flex-direction: column; /* Stack elements vertically */
     margin-left: 1rem;
@@ -208,6 +215,21 @@ dialog {
     padding: 20px; /* Padding inside the dialog */
     background-color: #fff; /* White background */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+#footer {
+    background-color: #333; /* Dark background */
+    color: white; /* White text */
+    text-align: center; /* Centered text */
+    padding: 10px 0; /* Padding above and below */
+    position: fixed; /* Fixed position at the bottom */
+    bottom: 0; /* Align to the bottom */
+    width: 100%; /* Full width */
+}
+
+#footer a {
+    color: white; /* White text for links */
+    text-decoration: none; /* No underline */
 }
 
 @media (max-width: 400px) {

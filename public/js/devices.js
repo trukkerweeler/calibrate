@@ -74,6 +74,7 @@ if (!addDeviceBtn) {
               }
             }
             // uppercase the DEVICe_TYPE, STATUS, MAJOR_LOCATION, MINOR_LOCATION
+            deviceData["DEVICE_ID"] = deviceData["DEVICE_ID"].toUpperCase();
             deviceData["DEVICE_TYPE"] = deviceData["DEVICE_TYPE"].toUpperCase();
             deviceData["STATUS"] = deviceData["STATUS"].toUpperCase();
             deviceData["MAJOR_LOCATION"] = deviceData["MAJOR_LOCATION"].toUpperCase();

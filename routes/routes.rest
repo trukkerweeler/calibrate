@@ -21,3 +21,5 @@ Content-Type: application/json
     "STATUS": "A"
 }
 ###
+
+GET http://localhost:3010/calibrate/nextId

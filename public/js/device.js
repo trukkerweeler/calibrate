@@ -27,6 +27,13 @@ function getRecords() {
             pageTitle.classList.add("page-header");
             pageTitle.innerHTML = pagetitlewithId;
             divTitle.appendChild(pageTitle);
+            let calibrationsBtn = document.createElement("button");
+            calibrationsBtn.classList.add("btn", "btn-primary", "calibrations-button");
+            calibrationsBtn.innerHTML = "View Calibrations";
+            calibrationsBtn.addEventListener("click", () => {
+                window.location.href = `./calibrations.html?id=${data["DEVICE_ID"]}`;
+            });
+            divTitle.appendChild(calibrationsBtn);
             mainElement.appendChild(divTitle);
             
             
