@@ -7,6 +7,10 @@ body {
     padding: 0;
 }
 
+input {
+    margin-bottom: 5px; /* Space below each input field */
+}
+
 .btn{ 
     background-color: #4CAF50; /* Green background */
     color: white; /* White text */
@@ -200,7 +204,7 @@ nav ul li a:hover {
     padding: 10px 0; /* Padding for the field */
 }
 
-#edit-device-form, #create-device-form, #create-calibration-form {
+#edit-device-form, #create-device-form, #create-calibration-form, #edit-devcal-form {
     display: flex;
     flex-direction: column; /* Stack elements vertically */
     margin-left: 1rem;

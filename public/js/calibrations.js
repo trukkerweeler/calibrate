@@ -187,25 +187,25 @@ submitAddCal.addEventListener("click", async (e) => {
         
         // Send the data to the server
         console.log("calibrationUrl", calibrationUrl);
-        fetch(`${calibrationUrl}`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log("Success:", data);
-                getRecords();
-                createCalibrationDialog.close();
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-            });
-            // update the Device table NEXT_DATE with calibration date plus standard interval
-            alert("Calibration created successfully!, need to update the Device table NEXT_DATE with calibration date plus standard interval");
-            // todo: get the standard interval from the device table
+        // fetch(`${calibrationUrl}`, {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify(data),
+        // })
+        //     .then((response) => response.json())
+        //     .then((data) => {
+        //         console.log("Success:", data);
+        //         getRecords();
+        //         createCalibrationDialog.close();
+        //     })
+        //     .catch((error) => {
+        //         console.error("Error:", error);
+        //     });
+        //     // update the Device table NEXT_DATE with calibration date plus standard interval
+        //     alert("Calibration created successfully!, need to update the Device table NEXT_DATE with calibration date plus standard interval");
+        //     // todo: get the standard interval from the device table
     } else {
         console.error("Dialog element with id 'create-calibration-dialog' not found.");
     }

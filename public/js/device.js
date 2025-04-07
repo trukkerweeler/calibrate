@@ -1,15 +1,17 @@
-import { loadHeaderFooter, myport } from './utils.mjs';
+import { loadHeaderFooter, myport, getUserValue } from './utils.mjs';
 
 loadHeaderFooter()
 const port = myport();
+async function initializePage() {
+    let user = await getUserValue("user") || "Unknown User";
 
-// read the url parameter
-const urlParams = new URLSearchParams(window.location.search);
-const deviceId = urlParams.get('id');
+    // read the url parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const deviceId = urlParams.get('id');
 
-const deviceUrl = `http://localhost:${port}/device/${deviceId}`;
+    const deviceUrl = `http://localhost:${port}/device/${deviceId}`;
 
-function getRecords() {
+    function getRecords() {
     fetch(deviceUrl, {
         method: "GET",
         headers: {
@@ -101,8 +103,15 @@ function getRecords() {
             let editCalibrationButton = document.createElement("button");
             editCalibrationButton.textContent = "Edit";
             editCalibrationButton.addEventListener("click", () => {
-                // Add your edit functionality here
-                alert("Edit Calibration button clicked!");
+                document.getElementById("edit-assi-employee-id").value = data["ASSI_EMPLOYEE_ID"] || "";
+                document.getElementById("edit-days-remaining").value = data["DAYS_REMAINING"] || "";
+                document.getElementById("edit-next-date").value = data["NEXT_DATE"] ? new Date(data["NEXT_DATE"]).toISOString().slice(0, 10) : "";
+                document.getElementById("edit-special-interval").value = data["SPECIAL_INTERVAL"] || "";
+                document.getElementById("edit-standard-interval").value = data["STANDARD_INTERVAL"] || "";
+                document.getElementById("edit-warning-interval").value = data["WARNING_INTERVAL"] || "";
+
+                // Show the edit calibration dialog
+                document.getElementById("edit-devcal-dialog").showModal();
             });
             
             calibDiv.appendChild(editCalibrationButton);
@@ -128,8 +137,110 @@ function getRecords() {
         })
 
 
-}
+    }
+        getRecords();
+    }
 
-getRecords();
+    initializePage();    
+    
+    document.addEventListener("DOMContentLoaded", async () => {
+        document.getElementById("cancelDeviceEdit").addEventListener("click", () => {
+            document.getElementById("edit-device-dialog").close();
+        });
+        
+        document.getElementById("cancelDevcalEdit").addEventListener("click", () => {
+            document.getElementById("edit-devcal-dialog").close();
+        });
 
+        document.getElementById("saveDeviceEdit").addEventListener("click", async (e) => {
+            e.preventDefault();
+            const user = await getUserValue("user") || "Unknown User";
+            const deviceId = document.getElementById("edit-device-id").value;
+            const deviceName = document.getElementById("edit-device-name").value;
+            const deviceType = document.getElementById("edit-device-type").value;
+            const manufacturerName = document.getElementById("edit-manufacturer-name").value;
+            const model = document.getElementById("edit-model").value;
+            const serialNumber = document.getElementById("edit-serial-number").value;
+            const majorLocation = document.getElementById("edit-major-location").value;
+            const minorLocation = document.getElementById("edit-minor-location").value;
+            const purchaseDate = document.getElementById("edit-purchase-date").value;
+            const purchasePrice = document.getElementById("edit-purchase-price").value;
+            const modDate = new Date().toISOString().slice(0, 19).replace("T", " ");
+            
+            const deviceEditUrl = `http://localhost:${port}/device/editdevice`;
+            fetch(deviceEditUrl, { 
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    'DEVICE_ID': deviceId,
+                    'NAME': deviceName,
+                    'DEVICE_TYPE': deviceType,
+                    'MANUFACTURER_NAME': manufacturerName,
+                    'MODEL': model,
+                    'SERIAL_NUMBER': serialNumber,
+                    'MAJOR_LOCATION': majorLocation,
+                    'MINOR_LOCATION': minorLocation,
+                    'PURCHASE_DATE': purchaseDate,
+                    'PURCHASE_PRICE': purchasePrice,
+                    'MODIFIED_DATE': modDate,
+                    'MODIFIED_BY': user,
+                }),
+            });
+            document.getElementById("edit-device-dialog").close();
+            window.location.href = `./device.html?id=${deviceId}`;
+
+        });
+
+        document.getElementById("saveDevcalEdit").addEventListener("click", async (e) => {
+            e.preventDefault();
+            let user = await getUserValue() || "Unknown User";
+            const urlParams = new URLSearchParams(window.location.search);
+            const deviceId = urlParams.get('id');
+            const assiEmployeeId = document.getElementById("edit-assi-employee-id").value;
+            const daysRemaining = document.getElementById("edit-days-remaining").value;
+            const nextDate = document.getElementById("edit-next-date").value;
+            const specialInterval = document.getElementById("edit-special-interval").value;
+            const standardInterval = document.getElementById("edit-standard-interval").value;
+            const warningInterval = document.getElementById("edit-warning-interval").value;
+            const status = document.getElementById("edit-status").value;
+            
+            // log all the values
+            console.log("Device ID: ", deviceId);
+            console.log("Assi Employee ID: ", assiEmployeeId);
+            console.log("Days Remaining: ", daysRemaining);
+            console.log("Next Date: ", nextDate);
+            console.log("Special Interval: ", specialInterval);
+            console.log("Standard Interval: ", standardInterval);
+            console.log("Warning Interval: ", warningInterval);
+            const modDate = new Date().toISOString().slice(0, 19).replace("T", " ");
+
+            console.log("User: ", user);
+            console.log("Mod Date: ", modDate);
+            const devCalEditUrl = `http://localhost:${port}/device/editdevcal`;
+
+            fetch(devCalEditUrl, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    'DEVICE_ID': deviceId,
+                    'ASSI_EMPLOYEE_ID': assiEmployeeId ? assiEmployeeId.toUpperCase() : assiEmployeeId,
+                    'DAYS_REMAINING': daysRemaining,
+                    'NEXT_DATE': nextDate,
+                    'SPECIAL_INTERVAL': specialInterval,
+                    'STANDARD_INTERVAL': standardInterval,
+                    'STATUS': status ? status.toUpperCase() : status,
+                    'WARNING_INTERVAL': warningInterval,
+                    'MODIFIED_BY': user,
+                    'MODIFIED_DATE': modDate,
+                }),
+            });
+            document.getElementById("edit-devcal-dialog").close();
+            window.location.href = `./device.html?id=${deviceId}`;
+
+        });
+    });
 
