@@ -83,7 +83,7 @@ router.get('/:id', (req, res) => {
 })
 
 // Get the next ID for a new record
-router.get('/nextId', (_, res) => {
+router.get('/nextId', (req, res) => {
     try {
         const connection = mysql.createConnection({
             host: process.env.DB_HOST,
@@ -99,7 +99,7 @@ router.get('/nextId', (_, res) => {
                 return;
             }
 
-        const query = 'SELECT * FROM SYSTEM_IDS WHERE TABLE_NAME = "CALIBRATION"';
+        const query = 'SELECT CURRENT_ID FROM calibration.SYSTEM_IDS WHERE TABLE_NAME = "CALIBRATION"';
         connection.query(query, (err, rows) => {
             if (err) {
                 console.log('Failed to query for calibrations: ' + err);
@@ -119,6 +119,48 @@ router.get('/nextId', (_, res) => {
         });    
 
         connection.end();
+        });
+    } catch (err) {
+        console.log('Error connecting to calibrate');
+        res.sendStatus(500);
+    }
+});
+
+router.get('/next', (_, res) => {
+    try {
+        const connection = mysql.createConnection({
+            host: process.env.DB_HOST,
+            user: process.env.DB_USER,
+            password: process.env.DB_PASS,
+            port: 3306,
+            database: 'calibration'
+        });
+        connection.connect(function(err) {
+            if (err) {
+                console.error('Error connecting: ' + err.stack);
+                res.sendStatus(500);
+                return;
+            }
+
+            const query = 'SELECT CURRENT_ID FROM calibration.SYSTEM_IDS WHERE TABLE_NAME = "CALIBRATION"';
+            connection.query(query, (err, rows) => {
+                if (err) {
+                    console.log('Failed to query for SYSTEM_IDS: ' + err);
+                    res.sendStatus(500);
+                    return;
+                }
+                if (rows.length === 0) {
+                    console.log('No records found in SYSTEM_IDS for CALIBRATION');
+                    res.status(404).send('No records found');
+                    return;
+                }
+                const nextId = parseInt(rows[0].CURRENT_ID) + 1;
+                const dbNextId = nextId.toString().padStart(7, '0');
+
+                res.json({ nextId: dbNextId });
+            });
+
+            connection.end();
         });
     } catch (err) {
         console.log('Error connecting to calibrate');

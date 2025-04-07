@@ -20,6 +20,9 @@ Content-Type: application/json
     "SERIAL_NUMBER": "001",
     "STATUS": "A"
 }
-###
 
+###
 GET http://localhost:3010/calibrate/nextId
+
+###
+GET http://localhost:3010/calibrate/next
