@@ -1,7 +1,7 @@
 
 // const exp = require("constants");
-const cors = require("cors");
-const express = require("express");
+import cors from "cors";
+import express from "express";
 const app = express();
 // const port = process.env.APP_PORT || 3010;
 const port = 3010;
@@ -16,12 +16,15 @@ app.use((req, res, next) => {
   next();
 });
 
-const deviceRoutes = require("./routes/device");
+import deviceRoutes from "./routes/device.js";
 app.use("/device", deviceRoutes);
 
-const calibrateRoutes = require("./routes/calibrate");
+import calibrateRoutes from "./routes/calibrate.js";
 app.use("/calibrate", calibrateRoutes);
 
-app.listen(port, async() => {
+import idRoutes from "./routes/ids.js";
+app.use("/ids", idRoutes);
+
+app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });

@@ -6,6 +6,7 @@ const user = await getUserValue();
 
 
 const calibrationUrl = `http://localhost:${port}/calibrate`;
+const idsUrl = `http://localhost:${port}/ids`;
 let mainElement = document.getElementById("main-content");
 // read the id from the URL
 const urlParams = new URLSearchParams(window.location.search);
@@ -129,7 +130,7 @@ function getRecords() {
     }
 getRecords();
 
-// Add event listener to the button
+// Add event listener to the Add Cal button (Show)
 const AddCalBtn = document.getElementById("btnAddCal");
 AddCalBtn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -153,66 +154,80 @@ cancelAddCal.addEventListener("click", (e) => {
     }
 });
 
-// Listen for the submit form event
+let nextId;
 const submitFormAddCal = document.querySelector("#buttonAddCalibration");
 submitFormAddCal.addEventListener("click", async (e) => {
-    e.preventDefault();
+  e.preventDefault();  
+  try {
+    nextId = await fetch(idsUrl, { method: "GET" })
+    .then((res) => res.json())
+    .then((data) => {
+      // console.log("Next ID fetched:", JSON.stringify(data));
+      return data;
+    });
+  } catch (error) {
+    console.error("Error fetching next ID:", error);
+  }
+  
+  const myForm = document.querySelector("#create-calibration-form");
+  if (!myForm) {
+    console.error("Form with id 'create-calibration-form' not found.");
+    return;
+  }
+  const formData = new FormData(myForm);
+  const data = Object.fromEntries(formData.entries());
+    data["CALIBRATION_ID"] = nextId;
+    data["DEVICE_ID"] = id;
+    data["CREATE_BY"] = user;
+    const now = new Date();
+    const mysqlDate = now.toISOString().slice(0, 19).replace('T', ' ');
+    data["CREATE_DATE"] = mysqlDate;
+    if (data["EMPLOYEE_ID"]) {
+      data["EMPLOYEE_ID"] = data["EMPLOYEE_ID"].toUpperCase();
+    }
+    if (data["SUPPLIER_ID"]) {
+      data["SUPPLIER_ID"] = data["SUPPLIER_ID"].toUpperCase();
+    }
+    // console.log(data);
     
-    // Get the next ID for the new record
-    // try {
-        const nid = await fetch(calibrationUrl + "/nextId", { method: "GET" })
-        .then((res) => res.json())
-        .then((data) => {
-            JSON.stringify(data);
-            console.log("Next ID fetched:", data);
-            return data;
-        });
-        // nid = response[0].nid;
-    // } catch (error) {
-        // console.error("Error fetching next ID:", error);
-    // }
-    
-    // const data = new FormData(submitFormAddCal);
-    // const createCalibrationDialog = document.querySelector("[create-calibration-dialog]");
-    // if (createCalibrationDialog) {
-    //     const form = createCalibrationDialog.querySelector("form");
-    //     const formData = new FormData(form);
-    //     const data = Object.fromEntries(formData.entries());
-    //     data["CALIBRATION_ID"] = nextId;
-    //     data["DEVICE_ID"] = id;
-    //     data["CREATE_BY"] = user;
-    //     const now = new Date();
-    //     const mysqlDate = now.toISOString().slice(0, 19).replace('T', ' ');
-    //     data["CREATE_DATE"] = mysqlDate;
-    //     if (data["EMPLOYEE_ID"]) {
-    //         data["EMPLOYEE_ID"] = data["EMPLOYEE_ID"].toUpperCase();
-    //     }
-    //     if (data["SUPPLIER_ID"]) {
-    //         data["SUPPLIER_ID"] = data["SUPPLIER_ID"].toUpperCase();
-    //     }
-    //     console.log(data);
-        
-        // Send the data to the server
-        // fetch(`${calibrationUrl}`, {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify(data),
-        // })
-        //     .then((response) => response.json())
-        //     .then((data) => {
-        //         console.log("Success:", data);
-        //         getRecords();
-        //         createCalibrationDialog.close();
-        //     })
-        //     .catch((error) => {
-        //         console.error("Error:", error);
-        //     });
-        //     // update the Device table NEXT_DATE with calibration date plus standard interval
-        //     alert("Calibration created successfully!, need to update the Device table NEXT_DATE with calibration date plus standard interval");
-        //     // todo: get the standard interval from the device table
-    // } else {
-    //     console.error("Dialog element with id 'create-calibration-dialog' not found.");
-    // }
+    // Send the data to the server
+    fetch(calibrationUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log("Calibration created successfully");
+          const createCalibrationDialog = document.querySelector("[create-calibration-dialog]");
+          if (createCalibrationDialog) {
+            createCalibrationDialog.close();
+          } else {
+            console.error("Dialog element with id 'create-calibration-dialog' not found.");
+          }
+          getRecords();
+          nextId = parseInt(nextId) + 1;
+          fetch(idsUrl, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ nextId: nextId }),
+          })
+          .then((response) => {
+            if (response.ok) {
+              console.log("Next ID updated successfully");
+            } else {
+              console.error("Error updating next ID:", response.statusText);
+            }
+          })
+        } else {
+          console.error("Error creating calibration:", response.statusText);
+        }
+      })
+      .catch((error) => {
+        console.error("Error creating calibration:", error);
+      });
 });

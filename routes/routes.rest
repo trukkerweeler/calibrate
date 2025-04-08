@@ -25,4 +25,5 @@ Content-Type: application/json
 GET http://localhost:3010/calibrate/nextId
 
 ###
-GET http://localhost:3010/calibrate/next
+GET http://localhost:3010/ids
+###

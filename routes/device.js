@@ -1,7 +1,8 @@
 
-const express = require("express");
+import express from "express";
+import mysql from "mysql";
+
 const router = express.Router();
-const mysql = require("mysql");
 
 // ==================================================
 // Get all records
@@ -166,8 +167,8 @@ router.put("/editdevice", (req, res) => {
       req.body.DEVICE_ID,
     ];
     // log the query with values
-    console.log("Query: ", query);
-    console.log("Values: ", values);
+    // console.log("Query: ", query);
+    // console.log("Values: ", values);
     
     connection.query(query, values, (err, rows, fields) => {
       if (err) {
@@ -228,4 +229,4 @@ router.put("/editdevcal", (req, res) => {
 });
 
 
-module.exports = router;
+export default router;
