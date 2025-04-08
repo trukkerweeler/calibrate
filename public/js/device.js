@@ -29,7 +29,15 @@ async function initializePage() {
             pageTitle.classList.add("page-header");
             pageTitle.innerHTML = pagetitlewithId;
             divTitle.appendChild(pageTitle);
+
+            let imageBtn = document.createElement("button");
+            imageBtn.id = "imageBtn";
+            imageBtn.classList.add("btn", "btn-primary", "image-button");
+            imageBtn.innerHTML = "Image";
+            divTitle.appendChild(imageBtn);
+
             let calibrationsBtn = document.createElement("button");
+            calibrationsBtn.id = "calibrationsBtn";
             calibrationsBtn.classList.add("btn", "btn-primary", "calibrations-button");
             calibrationsBtn.innerHTML = "View Calibrations";
             calibrationsBtn.addEventListener("click", () => {
@@ -132,7 +140,50 @@ async function initializePage() {
             });
 
             sectionsDiv.appendChild(calibrationSection);
+        // listen for click event on the image button
+        document.querySelector("#imageBtn").addEventListener("click", () => {
+            // alert("Image button clicked!");
+            const urlParams = new URLSearchParams(window.location.search);
+            const deviceId = urlParams.get('id');
+            // get the modal element
+            const modal = document.getElementById("upload-image-dialog");
+            // open the modal
+            modal.showModal();
 
+            // get the file input element
+            const fileInput = document.getElementById("image-upload-input");
+            // get the canvas element
+            const canvas = document.getElementById("image-canvas");
+            const ctx = canvas.getContext("2d");
+
+            // listen for file input change
+            fileInput.addEventListener("change", (event) => {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const img = new Image();
+                        img.onload = () => {
+                            // Clear the canvas
+                            ctx.clearRect(0, 0, canvas.width, canvas.height);
+                            // Draw the image on the canvas
+                            canvas.width = img.width;
+                            canvas.height = img.height;
+                            ctx.drawImage(img, 0, 0);
+                        };
+                        img.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    console.error("No file selected.");
+                }
+            });
+            // add event listener to the close button
+            const closeButton = document.getElementById("cancelImageUpload");
+            closeButton.addEventListener("click", () => {
+                modal.close();
+            });
+        });
         mainElement.appendChild(sectionsDiv);
         })
 
@@ -242,5 +293,7 @@ async function initializePage() {
             window.location.href = `./device.html?id=${deviceId}`;
 
         });
-    });
+
+        
+        });
 

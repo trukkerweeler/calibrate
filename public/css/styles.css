@@ -236,6 +236,31 @@ dialog {
     text-decoration: none; /* No underline */
 }
 
+#imageBtn {
+    margin-right: 10px; /* Space to the right of the button */
+}
+
+#imageForm {
+    width: 800px;
+    height: 600px;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+}
+.section-heading {
+    font-size: 24px; /* Larger font size for section headings */
+    margin-top: 1rem; /* Space above the heading */
+    margin-bottom: 10px; /* Space below the heading */
+    color: #4CAF50; /* Green color for the heading */
+    text-align: center; /* Centered text */
+}
+
+#imageForm {
+    /* display: flex; */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside the section */
+}
+
 @media (max-width: 400px) {
     .sections-div {
         grid-template-columns: 1fr;

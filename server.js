@@ -25,6 +25,9 @@ app.use("/calibrate", calibrateRoutes);
 import idRoutes from "./routes/ids.js";
 app.use("/ids", idRoutes);
 
+import imageRoutes from "./routes/image.js";
+app.use("/image", imageRoutes);
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
