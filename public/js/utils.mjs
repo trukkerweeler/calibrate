@@ -220,3 +220,44 @@ export function displayDate(date) {
     return "";
   }
 }
+
+export function getLastRunDate() {
+  const query = "SELECT LASTSENT_DATE FROM LASTSENT WHERE MODULE = 'CALIBRATIONS' ORDER BY LASTSENT_DATE DESC LIMIT 1";
+  // console.log("Query: ", query);
+  const connection = mysql.createConnection({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    port: 3306,
+    database: "calibration",
+  });
+
+  connection.connect(function (err) {
+    if (err) {
+      console.error("Error connecting: " + err.stack);
+      return;
+    }
+  });
+  console.log("Connected to DB");
+  const [rows] = connection.query(query);
+  let runMe = false;
+  if (rows && rows.length > 0) {
+    const lastSentDate = new Date(rows[0].LASTSENT_DATE);
+    const today = new Date();
+    if (
+      lastSentDate.getFullYear() === today.getFullYear() &&
+      lastSentDate.getMonth() === today.getMonth() &&
+      lastSentDate.getDate() === today.getDate()
+    ) {
+      console.log("Already ran today, not running.");
+      runMe = false;
+    } else {
+      console.log("Not ran today, running.");
+      runMe = true;
+    }
+  } else {
+    console.log("No records found, running.");
+    runMe = true;
+  }
+  return runMe;
+}

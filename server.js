@@ -1,5 +1,4 @@
 
-// const exp = require("constants");
 import cors from "cors";
 import express from "express";
 const app = express();
@@ -27,6 +26,27 @@ app.use("/ids", idRoutes);
 
 import imageRoutes from "./routes/image.js";
 app.use("/image", imageRoutes);
+
+// run croncal.js every 2 minutes if in test mode, otherwise every day at 8am
+import cron from "node-cron";
+import { exec } from "child_process";
+
+const isTestMode = process.env.NODE_ENV === "test";
+const schedule = isTestMode ? "*/2 * * * *" : "0 8 * * *";
+
+cron.schedule(schedule, () => {
+  exec("node croncal.js", (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Error executing croncal.js: ${error.message}`);
+      return;
+    }
+    if (stderr) {
+      console.error(`stderr: ${stderr}`);
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+  });
+});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
