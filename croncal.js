@@ -33,7 +33,7 @@ async function runDailyEmailJob() {
     }
 
     const usersToEmail = [
-        { email: 'tim.kent@ci-aviation.com' }
+        { email: process.env.EMAIL_USER1 },
     ];
 
     const transporter = nodemailer.createTransport({
@@ -112,7 +112,6 @@ async function runDailyEmailJob() {
         VALUES (?, NOW()) 
         ON DUPLICATE KEY UPDATE LASTSENT_DATE = NOW()
     `, ['CALIBRATION']);
-    // console.log('Emails sent and last_run updated!');
 }
 
 runDailyEmailJob().catch(console.error);
