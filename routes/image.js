@@ -11,6 +11,46 @@ const router = express.Router();
 const storage = multer.memoryStorage(); // Store files in memory
 const upload = multer({ storage: storage });
 
+// Route to get the binary image data from the database
+router.get("/:id", async (req, res) => {
+  const deviceId = req.params.deviceId; // Get the device ID from the request parameters
+
+  try {
+    const connection = mysql.createConnection({
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASS,
+      port: 3306,
+      database: "calibration",
+    });
+
+    const query = `SELECT IMAGEBLOB FROM DEVICE_IMAGES WHERE DEVICE_ID = ?`;
+
+    connection.execute(query, [deviceId], (err, rows) => {
+      if (err) {
+        console.error("Failed to retrieve image: " + err);
+        res.sendStatus(500);
+        return;
+      }
+
+      if (rows.length > 0) {
+        const imageBuffer = rows[0].IMAGEBLOB; // Get the image buffer from the first row
+        res.setHeader("Content-Type", "image/jpeg"); // Set the content type to JPEG
+        res.send(imageBuffer); // Send the image buffer as the response
+      } else {
+        res.status(404).send("Image not found for device ID: " + deviceId);
+      }
+    });
+
+    connection.end();
+  } catch (err) {
+    console.error("Error connecting to DB: ", err);
+    res.sendStatus(500);
+  }
+}
+);
+
+
 router.post("/", upload.single("image"), async (req, res) => {
   // console.log("Received request to save image");
   // console.log("Request body: ", req.body);

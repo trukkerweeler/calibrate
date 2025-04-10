@@ -36,6 +36,22 @@ async function initializePage() {
             imageBtn.innerHTML = "Image";
             divTitle.appendChild(imageBtn);
 
+            // Add event listener for imageBtn to open the dialog for displaying an image of the device
+            imageBtn.addEventListener("click", () => {
+                const modal = document.getElementById("view-device-image-dialog");
+                modal.showModal();
+                const imageCanvas = document.getElementById("device-image-canvas");
+                const ctx = imageCanvas.getContext("2d");
+                const image = new Image();
+                image.src = `http://localhost:${port}/image/${data["DEVICE_ID"]}`;
+                image.onload = () => {
+                    imageCanvas.width = image.width;
+                    imageCanvas.height = image.height;
+                    ctx.drawImage(image, 0, 0);
+                };
+                
+            });
+
             let calibrationsBtn = document.createElement("button");
             calibrationsBtn.id = "calibrationsBtn";
             calibrationsBtn.classList.add("btn", "btn-primary", "calibrations-button");
@@ -146,15 +162,19 @@ async function initializePage() {
             const urlParams = new URLSearchParams(window.location.search);
             const deviceId = urlParams.get('id');
             // get the modal element
-            const modal = document.getElementById("upload-image-dialog");
+            const modal = document.getElementById("view-device-image-dialog");
             // open the modal
             modal.showModal();
 
             // get the file input element
             const fileInput = document.getElementById("image-upload-input");
             // get the canvas element
-            const canvas = document.getElementById("image-canvas");
-            const ctx = canvas.getContext("2d");
+            const canvas = document.getElementById("device-image-canvas");
+            if (canvas) {
+                const ctx = canvas.getContext("2d");
+            } else {
+                console.error("Canvas element not found in the DOM.");
+            }
 
             // listen for file input change
             fileInput.addEventListener("change", (event) => {
