@@ -1,74 +1,118 @@
-// ===================================================
-console.log("This is croncal.js file");
+// croncal.js
+import dotenv from 'dotenv';
+dotenv.config();
 
+import db from './db.js';
+import nodemailer from 'nodemailer';
 
-// // dailyEmailJob.js
-// import db from './db.js';         // your database logic
-// import nodemailer from 'nodemailer';
+async function shouldRun() {
+    const [lastSentRow] = await db.query('SELECT LASTSENT_DATE FROM LASTSENT WHERE MODULE = ?', ['CALIBRATION']);
+    const lastSentDate = lastSentRow?.LASTSENT_DATE;
 
-// async function shouldRun() {
-//   const [lastRunRow] = await db.query('SELECT last_run FROM scheduler_log WHERE task = ?', ['daily_email']);
-//   const lastRun = lastRunRow?.last_run;
+    const now = new Date();
+    if (!lastSentDate || now - new Date(lastSentDate) > 24 * 60 * 60 * 1000) {
+        return true;
+    }
+    return false;
+}
 
-//   const now = new Date();
-//   if (!lastRun || now - new Date(lastRun) > 24 * 60 * 60 * 1000) {
-//     return true;
-//   }
-//   return false;
-// }
+async function hasOverdue() {
+    const [overdueRow] = await db.query(`SELECT COUNT(*) AS overdue_count FROM DEVICES WHERE NEXT_DATE < NOW() AND STATUS = 'A'`);
+    return overdueRow?.overdue_count > 0;
+}
 
-// async function runDailyEmailJob() {
-//   if (!(await shouldRun())) {
-//     console.log('Not time yet. Skipping...');
-//     return;
-//   }
+async function runDailyEmailJob() {
+    if (!(await shouldRun())) {
+        console.log('Not time yet. Skipping...');
+        return;
+    }
 
-//   const usersToEmail = await db.query('SELECT * FROM users WHERE notify = 1');
+    if (!(await hasOverdue())) {
+        console.log('No overdue items. Skipping...');
+        return;
+    }
 
-//   const transporter = nodemailer.createTransport({ /* your SMTP config */ });
+    const usersToEmail = [
+        { email: 'tim.kent@ci-aviation.com' }
+    ];
 
-//   for (const user of usersToEmail) {
-//     await transporter.sendMail({
-//       to: user.email,
-//       subject: 'Daily Notification',
-//       text: 'Hello! This is your daily message.',
-//     });
-//   }
+    const transporter = nodemailer.createTransport({
+        host: process.env.SMTP_HOST,
+        port: parseInt(process.env.SMTP_PORT, 10),
+        secure: true, 
+        auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.QSMTP_PASS,
+        },
+    });
 
-//   await db.query('UPDATE scheduler_log SET last_run = NOW() WHERE task = ?', ['daily_email']);
-//   console.log('Emails sent and last_run updated!');
-// }
+    const overdueDevices = await db.query(`
+        SELECT DEVICE_ID, NAME, MAJOR_LOCATION, MINOR_LOCATION, NEXT_DATE 
+        FROM DEVICES 
+        WHERE NEXT_DATE < NOW() AND STATUS = 'A'
+    `).then(devices => {
+        if (devices.length > 0) {
+            const tableRows = devices.map(device => `
+                <tr>
+                    <td>${device.DEVICE_ID}</td>
+                    <td>${device.NAME}</td>
+                    <td>${device.MAJOR_LOCATION}</td>
+                    <td>${device.MINOR_LOCATION}</td>
+                    <td>${new Date(device.NEXT_DATE).toLocaleDateString()}</td>
+                </tr>
+            `).join('');
 
-// runDailyEmailJob().catch(console.error);
+            console.log('Generated HTML table for overdue devices.');
+            return `
+                <table border="1" style="border-collapse: collapse; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Device ID</th>
+                            <th>Name</th>
+                            <th>Major Location</th>
+                            <th>Minor Location</th>
+                            <th>Next Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${tableRows}
+                    </tbody>
+                </table>
+            `;
+        } else {
+            console.log('No overdue devices found.');
+            return '<p>No overdue devices found.</p>';
+        }
+    });
 
+    for (const user of usersToEmail) {
+        await transporter.sendMail({
+            from: `"Calibration Team" <${process.env.EMAIL_USER}>`, 
+            to: user.email,
+            subject: 'Daily Calibration Notification',
+            // text: 'Hello! This is your daily message.',
+            html: `
+                <p>Hello,</p>
+                <p>This is your daily notification for overdue devices:</p>
+                ${overdueDevices}
+                <p>Best regards,<br>Calibration Team</p>
+            `,
+        }, (error, info) => {
+            if (error) {
+                console.error('Error sending email:', error);
+            } else {
+                console.log('Email sent:', info.response);
+                
+            }
+        });
+    }
 
-// // db.js
-// import mysql from 'mysql2/promise';
+    await db.query(`
+        INSERT INTO LASTSENT (MODULE, LASTSENT_DATE) 
+        VALUES (?, NOW()) 
+        ON DUPLICATE KEY UPDATE LASTSENT_DATE = NOW()
+    `, ['CALIBRATION']);
+    // console.log('Emails sent and last_run updated!');
+}
 
-// // Create a connection pool
-// const pool = mysql.createPool({
-//   host: 'localhost',
-//   user: 'your_mysql_user',
-//   password: 'your_password',
-//   database: 'your_database_name',
-//   waitForConnections: true,
-//   connectionLimit: 10,
-//   queueLimit: 0
-// });
-
-// // Export a helper to query easily
-// export async function query(sql, params) {
-//   const [results] = await pool.execute(sql, params);
-//   return results;
-// }
-
-// export default {
-//   query
-// };
-
-
-// import db from './db.js';
-
-// const users = await db.query('SELECT * FROM users WHERE active = ?', [1]);
-
-// console.log(users); // results are just plain JS objects
+runDailyEmailJob().catch(console.error);
