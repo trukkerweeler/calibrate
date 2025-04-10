@@ -1,11 +1,23 @@
 import express from "express";
 import mysql from "mysql2";
+import multer from "multer";
 
 const router = express.Router();
 
 // ==================================================
-// Save image to DB
-router.post("/", async (req, res) => {
+// Save image to DB using multer
+
+// Configure multer for handling file uploads
+const storage = multer.memoryStorage(); // Store files in memory
+const upload = multer({ storage: storage });
+
+router.post("/", upload.single("image"), async (req, res) => {
+  // console.log("Received request to save image");
+  // console.log("Request body: ", req.body);
+  // console.log("Request headers: ", req.headers);
+  // console.log("Request method: ", req.method);
+  // console.log("Request URL: ", req.url);
+
   try {
     const connection = mysql.createConnection({
       host: process.env.DB_HOST,
@@ -15,9 +27,23 @@ router.post("/", async (req, res) => {
       database: "calibration",
     });
 
-    const query = `INSERT INTO DEVICE_IMAGES (DEVICE_ID, IMAGE) VALUES (?, ?)`;
-    const toolId = req.body.toolId; // Assuming TOOL_ID is sent in the request body
-    const image = req.body.image; // Assuming the image is sent in the request body
+    // Check if the file is uploaded
+    if (!req.file) {
+      console.error("No file uploaded");
+      res.status(400).send("Image file is required");
+      return;
+    }
+
+    const toolId = req.body.deviceId; // Assuming TOOL_ID is sent in the request body
+    if (!toolId) {
+      console.error("Tool ID is null or undefined");
+      res.status(400).send("Tool ID is required");
+      return;
+    }
+
+    const image = req.file.buffer; // Get the image buffer from the uploaded file
+
+    const query = `INSERT INTO DEVICE_IMAGES (DEVICE_ID, IMAGEBLOB) VALUES (?, ?)`;
 
     connection.execute(query, [toolId, image], (err, result) => {
       if (err) {

@@ -13,7 +13,7 @@ section.innerHTML = `
 <form id="imageForm">
         <div class="form-group">
         <label for="toolId">Tool ID:</label>
-        <input type="text" id="deviceId" name="toolId" placeholder="Enter tool ID" required>
+        <input type="text" id="deviceId" name="toolId" placeholder="Enter tool ID" value="TEST" required>
         </div>
         <div class="form-group">
         <label for="imagePicker">Choose an image:</label>
@@ -76,10 +76,20 @@ saveButton.addEventListener('click', async () => {
                 const deviceId = document.getElementById('deviceId').value.trim();
                 const fileName = deviceId ? `${deviceId}.png` : 'resized-image.png';
                 formData.append('image', blob, fileName);
+                formData.append('deviceId', deviceId); // Add deviceId explicitly to formData
 
-                const response = await fetch(`image`, {
+                // log the formData for debugging
+                // console.log('FormData:', formData.get('image'), formData.get('deviceId'));
+
+                if (!deviceId) {
+                    alert('Tool ID is required.');
+                    return;
+                }
+
+                const response = await fetch(`/image`, {
                     method: 'POST',
-                    body: formData,
+                    body: formData
+                    // Do not set Content-Type; it will be automatically set by the browser for FormData
                 });
 
                 if (response.ok) {

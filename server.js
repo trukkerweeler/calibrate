@@ -1,9 +1,15 @@
 
 import cors from "cors";
 import express from "express";
+
 const app = express();
 // const port = process.env.APP_PORT || 3010;
 const port = 3010;
+
+// Add middleware to parse JSON and URL-encoded data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 
 app.use(cors());
 
