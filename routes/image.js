@@ -13,7 +13,7 @@ const upload = multer({ storage: storage });
 
 // Route to get the binary image data from the database
 router.get("/:id", async (req, res) => {
-  const deviceId = req.params.deviceId; // Get the device ID from the request parameters
+  const deviceId = req.params.id;
 
   try {
     const connection = mysql.createConnection({
@@ -35,7 +35,7 @@ router.get("/:id", async (req, res) => {
 
       if (rows.length > 0) {
         const imageBuffer = rows[0].IMAGEBLOB; // Get the image buffer from the first row
-        res.setHeader("Content-Type", "image/jpeg"); // Set the content type to JPEG
+        res.setHeader("Content-Type", "image/png");
         res.send(imageBuffer); // Send the image buffer as the response
       } else {
         res.status(404).send("Image not found for device ID: " + deviceId);
@@ -83,7 +83,11 @@ router.post("/", upload.single("image"), async (req, res) => {
 
     const image = req.file.buffer; // Get the image buffer from the uploaded file
 
-    const query = `INSERT INTO DEVICE_IMAGES (DEVICE_ID, IMAGEBLOB) VALUES (?, ?)`;
+    const query = `
+      INSERT INTO DEVICE_IMAGES (DEVICE_ID, IMAGEBLOB) 
+      VALUES (?, ?)
+      ON DUPLICATE KEY UPDATE IMAGEBLOB = VALUES(IMAGEBLOB)
+    `;
 
     connection.execute(query, [toolId, image], (err, result) => {
       if (err) {
@@ -100,5 +104,43 @@ router.post("/", upload.single("image"), async (req, res) => {
     res.sendStatus(500);
   }
 });
+
+// ==================================================
+// Delete image from DB
+router.delete("/:id", async (req, res) => {
+  const deviceId = req.params.id;
+
+  try {
+    const connection = mysql.createConnection({
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASS,
+      port: 3306,
+      database: "calibration",
+    });
+
+    const query = `DELETE FROM DEVICE_IMAGES WHERE DEVICE_ID = ?`;
+
+    connection.execute(query, [deviceId], (err, result) => {
+      if (err) {
+        console.error("Failed to delete image: " + err);
+        res.sendStatus(500);
+        return;
+      }
+
+      if (result.affectedRows > 0) {
+        res.json({ message: "Image deleted successfully" });
+      } else {
+        res.status(404).send("Image not found for device ID: " + deviceId);
+      }
+    });
+
+    connection.end();
+  } catch (err) {
+    console.error("Error connecting to DB: ", err);
+    res.sendStatus(500);
+  }
+});
+// ==================================================
 
 export default router;

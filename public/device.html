@@ -127,14 +127,34 @@
           </div>
         </form>
       </dialog>
+
+      <!-- Image view dialog -->
       <dialog id="view-device-image-dialog" class="dialog">
-        <h2>Device Image</h2>
-        <img id="device-image" src="" alt="Device Image" style="max-width: 100%; height: auto;" />
-        <canvas id="device-image-canvas" style="display: none;"></canvas>
-        <div class="dialog-actions">
-          <button type="button" id="closeImageDialog" class="btn btn-cancel">Close</button>
-        </div>
+        <button id="closeDialog" class="close-button">&times;</button>
+        <section class="section image-section">
+          <h2>Device Image</h2>
+          <div id="view-device-image-div">
+            <img id="device-image" src="" alt="Device Image" />
+            <div class="dialog-actions">
+              <!-- <label for="imagePicker">Change Image:</label> -->
+              <section>
+                <h3>Change image</h3>
+                <button type="button" id="changeImage" class="btn btn-primary">
+                  Change Image</button>
+                <input type="file" id="imagePicker" accept="image/*" />
+              </section>
+              <section>
+                <h3>Delete image</h3>
+                <button type="button" id="deleteImage" class="btn btn-cancel">
+                  Delete Image</button>
+              </section>
+            </div>
+          </div>
+          </button>
+        </section>
       </dialog>
+
+
     </main>
     <footer id="footer"></footer>
   </body>

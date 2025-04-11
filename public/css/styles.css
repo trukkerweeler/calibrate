@@ -241,8 +241,8 @@ dialog {
 }
 
 #imageForm {
-    width: 800px;
-    height: 600px;
+    width: 600px;
+    height: 370px;
     border: 1px solid black;
     margin-left: auto;
     margin-right: auto;
@@ -259,6 +259,71 @@ dialog {
     /* display: flex; */
     border-radius: 8px; /* Rounded corners */
     padding: 20px; /* Padding inside the section */
+}
+
+.close-button {
+    position: absolute; /* Positioning relative to the parent */
+    top: 8px; /* Distance from the top */
+    right: 8px; /* Distance from the right */
+    background-color: #f44336; /* Red background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 15px; /* Padding for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1.5rem; /* Font size for the button text */
+    border-radius: 5px; /* Rounded corners for the button */
+    margin-left: 1rem;
+}
+
+.close-button:hover {
+    background-color: #e53935; /* Darker red on hover */
+}
+
+#view-device-image-dialog {
+    border-radius: 8px; /* Rounded corners */
+    border-color: #333; /* Border color */
+    padding: 20px; /* Padding inside the dialog */
+    background-color: #fff; /* White background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    width: 700px; /* Width of the dialog */
+    height: 500px; /* Height of the dialog */
+    margin-left: auto; /* Centering the dialog */
+    margin-right: auto; /* Centering the dialog */
+}
+
+#view-device-image-div {
+    display: grid;
+    grid-template-columns: 55% 35%;
+    gap: 20px 30px; /* Horizontal gap: 20px, Vertical gap: 30px */
+    margin: 20px; /* Margin around the grid */
+    margin-top: 0px; /* No margin on top */
+    padding: 20px; /* Padding inside the grid */
+    background-color: #fff; /* White background for the grid */
+    border-radius: 8px; /* Rounded corners for the grid */
+    border: #4CAF50 solid 1px; /* Border around the grid */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    border-radius: 8px; /* Rounded corners for each section */
+}
+
+#device-image {
+    width: 300px; /* Full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners for the image */
+    border-color: #333; /* Border color */
+    border-style: solid; /* Solid border style */
+    border-width: 1px; /* Border width */
+}
+
+.dialog-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 1rem; /* Space above the actions */
+}
+
+#imagePicker {
+    margin-top: 1rem; /* Space above the image picker */
+    margin-left: 1rem; /* Space to the left of the image picker */
+    margin-right: 1rem; /* Space to the right of the image picker */
 }
 
 @media (max-width: 400px) {
