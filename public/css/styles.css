@@ -326,8 +326,40 @@ dialog {
     margin-right: 1rem; /* Space to the right of the image picker */
 }
 
+.filters-div{ 
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 20px 30px; /* Horizontal gap: 20px, Vertical gap: 30px */
+    margin: 20px; /* Margin around the grid */
+    padding: 20px; /* Padding inside the grid */
+    background-color: #fff; /* White background for the grid */
+    border-radius: 8px; /* Rounded corners for the grid */
+}
+
+#calibrate-image {
+    width: 900px; /* Full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners for the image */
+    border-color: #333; /* Border color */
+    border-style: solid; /* Solid border style */
+    border-width: 1px; /* Border width */
+    margin-left: auto; /* Centering the image */
+    margin-right: auto; /* Centering the image */
+    margin-top: 1rem; /* Space above the image */
+    margin-bottom: -3rem; /* Space below the image */
+    display: block;
+    justify-content: center;
+    
+}
+
 @media (max-width: 400px) {
     .sections-div {
         grid-template-columns: 1fr;
+    }
+}
+
+@media print {
+    nav, #footer {
+        display: none; /* Hide the header and footer when printing */
     }
 }
