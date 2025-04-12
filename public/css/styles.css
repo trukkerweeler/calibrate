@@ -346,10 +346,131 @@ dialog {
     margin-left: auto; /* Centering the image */
     margin-right: auto; /* Centering the image */
     margin-top: 1rem; /* Space above the image */
-    margin-bottom: -3rem; /* Space below the image */
+    margin-bottom: 1rem; /* Space below the image */
     display: block;
     justify-content: center;
     
+}
+
+#calibrate-message {
+    font-size: 1.5rem; /* Font size for the message */
+    color: #4CAF50; /* Green color for the message */
+    text-align: center; /* Centered text */
+    margin: 1rem auto; /* Space above and below the message, center horizontally */
+    max-width: 70%; /* Ensure it doesn't exceed the container width */
+    animation: throb 1.5s infinite; /* Add throb animation */
+    overflow-wrap: break-word; /* Break long words if necessary */
+}
+
+#subscribe-button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 15px; /* Padding for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 36px; /* Font size for the button text */
+    font-style: italic;/* Italic font */
+    border-radius: 5px; /* Rounded corners for the button */
+    margin-left: 1rem;
+    display: block;
+    margin: 0 auto;
+}
+#subscribe-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+#login-dialog-button {
+    background-color: #333; /* Dark background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 15px; /* Padding for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 36px; /* Font size for the button text */
+    font-style: italic;/* Italic font */
+    border-radius: 5px; /* Rounded corners for the button */
+    margin-top: 1rem; /* Space above the button */
+    margin-left: 1rem;
+    display: block;
+    margin: 0 auto;
+}
+
+#register-login-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* Four equal columns */
+    gap: 20px 30px; /* Horizontal gap: 20px, Vertical gap: 30px */
+    margin: 20px; /* Margin around the grid */
+    padding: 20px; /* Padding inside the grid */
+    background-color: #fff; /* White background for the grid */
+    border-radius: 8px; /* Rounded corners for the grid */
+}
+
+#login-text, #register-text {
+    font-size: 24px; /* Larger font size for section headings */
+    margin-top: 1rem; /* Space above the heading */
+    margin-bottom: 10px; /* Space below the heading */
+    color: #4CAF50; /* Green color for the heading */
+    text-align: right; /* Right-aligned text */
+    font-style: italic; /* Italic font style */
+    display: flex;
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    margin-left: 1rem; /* Space to the left of the text */
+}
+#login-text {
+    margin-left: 1rem; /* Space to the left of the text */
+    margin-right: 1rem; /* Space to the right of the text */
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    margin-left: 1rem; /* Space to the left of the form */
+    margin-right: 1rem; /* Space to the right of the form */
+}
+#login-form label {
+    margin-bottom: 5px; /* Space below each label */
+}
+#login-form input {
+    margin-bottom: 10px; /* Space below each input field */
+}
+#login-form button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 15px; /* Padding for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 14px; /* Font size for the button text */
+    border-radius: 5px; /* Rounded corners for the button */
+    margin-left: 1rem;
+}
+#login-form button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+#login-form .btn-cancel {
+    background-color: #f44336; /* Red background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 15px; /* Padding for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 14px; /* Font size for the button text */
+    border-radius: 5px; /* Rounded corners for the button */
+    margin-left: 1rem;
+    margin-top: 1rem; /* Space above the button */
+}
+#login-form .btn-cancel:hover {
+    background-color: #e53935; /* Darker red on hover */
+}
+
+/* Define the throb animation */
+@keyframes throb {
+    0%, 100% {
+        transform: scale(1); /* Normal size */
+        opacity: 1; /* Full opacity */
+    }
+    50% {
+        transform: scale(1.1); /* Slightly larger */
+        opacity: 0.8; /* Slightly transparent */
+    }
 }
 
 @media (max-width: 400px) {

@@ -27,3 +27,21 @@ GET http://localhost:3010/calibrate/nextId
 ###
 GET http://localhost:3010/ids
 ###
+
+POST http://localhost:3010/user/create
+Content-Type: application/json
+
+{
+  "USER_ID": "TKENT",
+  "PASSWORD": "password"
+}
+###
+DELETE http://localhost:3010/user/delete
+Content-Type: application/json
+
+{
+  "USER_ID": "tkent",
+}
+###
+GET http://localhost:3010/user
+###

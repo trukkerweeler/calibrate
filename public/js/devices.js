@@ -4,8 +4,14 @@ loadHeaderFooter();
 const port = myport();
 const user = await getUserValue();
 
+// Change Login to logout
+const loginButton = document.getElementById("loginNav");
+loginButton.text = "Logout";
+// loginButton.setAttribute("href", `https://${port}/logout`);
+
 const deviceUrl = `http://localhost:${port}/device`;
 let mainElement = document.getElementById("main-content");
+
 
 // Make the page header div
 function makePageHeaderDiv() {
