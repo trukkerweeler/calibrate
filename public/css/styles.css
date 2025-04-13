@@ -470,6 +470,30 @@ dialog {
     background-color: #e53935; /* Darker red on hover */
 }
 
+#main-content {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    margin-top: 3rem; /* Space above the main content */
+    margin-left: 1rem; /* Space to the left of the main content */
+    margin-right: 1rem; /* Space to the right of the main content */
+    padding: 20px; /* Padding inside the main content */
+    background-color: #fff; /* White background for the main content */
+    border-radius: 8px; /* Rounded corners for the main content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.call-to-action {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    margin-left: 1rem; /* Space to the left of the call to action */
+    margin-right: 1rem; /* Space to the right of the call to action */
+    padding: 20px; /* Padding inside the call to action */
+    background-color: #fff; /* White background for the call to action */
+    border-radius: 8px; /* Rounded corners for the call to action */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    margin-top: 3rem; /* Space above the call to action */
+}
+
 /* Define the throb animation */
 @keyframes throb {
     0%, 100% {

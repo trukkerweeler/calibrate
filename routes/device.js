@@ -3,13 +3,6 @@ const router = express.Router();
 const mysql = require("mysql2");
 
 
-// // Middleware to check if the user is logged in
-// const requireLogin = require("../middleware/auth.js");
-// router.get("/", requireLogin, (req, res) => {
-//   res.json({ message: "You are logged in" });
-// });
-
-
 // ==================================================
 // Get all records
 router.get("/", async (req, res) => {
@@ -243,6 +236,44 @@ router.put("/editdevcal", async (req, res) => {
           return;
         }
         res.json({ message: "Record updated successfully" });
+      });
+
+      connection.end();
+    });
+  } catch (err) {
+    console.error("Error connecting to DB: ", err);
+    res.sendStatus(500);
+  }
+});
+
+// ==================================================
+// Delete a record by id
+router.delete("/delete", async (req, res) => {
+  try {
+    const connection = mysql.createConnection({
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASS,
+      port: 3306,
+      database: "calibration",
+    });
+
+    connection.connect((err) => {
+      if (err) {
+        console.error("Error connecting: " + err.stack);
+        res.sendStatus(500);
+        return;
+      }
+
+      const query = `DELETE FROM DEVICES WHERE DEVICE_ID = ?`;
+
+      connection.query(query, [req.body.DEVICE_ID], (err) => {
+        if (err) {
+          console.error("Failed to delete device: " + err);
+          res.sendStatus(500);
+          return;
+        }
+        res.json({ message: "Record deleted successfully" });
       });
 
       connection.end();
