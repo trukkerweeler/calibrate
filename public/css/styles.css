@@ -149,16 +149,18 @@ nav ul li {
     margin: 0 20px;           /* Spaces out items */
 }
 
-nav ul li a {
+nav ul li a, nav ul li button {
     color: white;             /* White text */
     text-decoration: none;    /* Removes underline */
     font-size: 18px;          /* Adjusts text size */
     font-weight: bold;        /* Makes text bold */
     padding: 10px 15px;       /* Adds spacing for better clickability */
     display: inline-block;
+    background-color: black; /* Black background for buttons */
+    border: none;            /* No border for buttons */
 }
 
-nav ul li a:hover {
+nav ul li a:hover, nav ul li button:hover {
     background-color: #333;   /* Darker background on hover */
     border-radius: 5px;       /* Optional: Adds rounded corners */
 }

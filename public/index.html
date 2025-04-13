@@ -17,7 +17,8 @@
   <body>
     <header id="header"></header>
     <main id="main-content">
-      <dialog id="login-dialog" class="login-dialog">
+
+      <dialog id="loginDialog" class="login-dialog">
         <form id="login-form" class="login-form">
           <h2>Login</h2>
           <label for="username">Username:</label>
@@ -25,7 +26,7 @@
           <label for="password">Password:</label>
           <input type="password" id="password" name="password" required />
           <button id="submitLogin" type="submit">Login</button>
-          <button id="cancelLogin" type="button" class="btn-cancel">Cancel</button>
+          <button id="cancelLogin" type="button" class="btn-cancel" onclick="document.getElementById('loginDialog').close();">Cancel</button>
         </form>
       </dialog>
     

@@ -255,13 +255,6 @@ async function initializePage() {
 initializePage();
 
 document.addEventListener("DOMContentLoaded", async () => {
-  document.getElementById("cancelDeviceEdit").addEventListener("click", () => {
-    document.getElementById("edit-device-dialog").close();
-  });
-
-  document.getElementById("cancelDevcalEdit").addEventListener("click", () => {
-    document.getElementById("edit-devcal-dialog").close();
-  });
 
   document
     .getElementById("saveDeviceEdit")
@@ -375,12 +368,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       document.getElementById("edit-devcal-dialog").close();
       window.location.href = `./device.html?id=${deviceId}`;
     });
-});
-
-const closeButton = document.getElementById("closeDialog");
-closeButton.addEventListener("click", () => {
-  const modal = document.getElementById("view-device-image-dialog");
-  modal.close();
 });
 
 // listen for changeImage

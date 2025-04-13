@@ -1,14 +1,8 @@
 import { loadHeaderFooter, myport, getUserValue } from "./utils.mjs";
 
-
 loadHeaderFooter();
 const port = myport();
 const user = await getUserValue();
-
-const loginButton = document.getElementById("loginNav");
-if (loginButton) {
-    loginButton.hidden = !loginButton.hidden;
-}
 
 const mainContent = document.getElementById("main-content");
 const callToAction = document.createElement("div");
@@ -27,24 +21,24 @@ const registerButton = document.createElement("button");
 registerButton.textContent = "Register Now";
 registerButton.id = "subscribe-button";
 registerButton.onclick = () => {
-    window.location.href = `http://${port}/register`;
+  window.location.href = `http://${port}/register`;
 };
 registerButton.onclick = () => {
-    if (user) {
-        window.location.href = `./register.html`;
-    } else {
-        window.location.href = `./register.html`;
-    }
-}
+  if (user) {
+    window.location.href = `./register.html`;
+  } else {
+    window.location.href = `./register.html`;
+  }
+};
 
-const loginDialog = document.getElementById("login-dialog");
+const loginDialog = document.getElementById("loginDialog");
 const loginDialogButton = document.createElement("button");
 loginDialogButton.textContent = "Login";
 loginDialogButton.id = "login-dialog-button";
 loginDialogButton.onclick = () => {
-    if (loginDialog) {
-        loginDialog.showModal();
-    }
+  if (loginDialog) {
+    loginDialog.showModal();
+  }
 };
 
 const registerLoginDiv = document.createElement("div");
@@ -67,42 +61,86 @@ registerLoginDiv.appendChild(registerButton);
 registerLoginDiv.appendChild(loginText);
 registerLoginDiv.appendChild(loginDialogButton);
 
-
-
 callToAction.appendChild(image);
 callToAction.appendChild(message);
 callToAction.appendChild(registerLoginDiv);
 
 mainContent.appendChild(callToAction);
 
-const cancelLoginButton = document.getElementById("cancelLogin");
-if (cancelLoginButton && loginDialog) {
-    cancelLoginButton.addEventListener("click", () => {
-        loginDialog.close();
-    });
-}
 
 // listen for the submitLogin button click event
 const submitLoginButton = document.getElementById("submitLogin");
 if (submitLoginButton && loginDialog) {
-    submitLoginButton.addEventListener("click", async (event) => {
-        event.preventDefault(); // Prevent the default form submission behavior
+  submitLoginButton.addEventListener("click", async (event) => {
+    event.preventDefault(); // Prevent the default form submission behavior
 
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
 
-        const response = await fetch(`http://localhost:${port}/auth/login`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ username, password }),
-        });
-
-        if (response.ok) {
-            window.location.href = `http://localhost:${port}/devices.html`;
-        } else {
-            alert("Invalid username or password");
-        }
+    const response = await fetch(`http://localhost:${port}/auth/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }),
     });
+
+    if (response.ok) {
+      window.location.href = `http://localhost:${port}/devices.html`;
+    } else {
+      alert("Invalid username or password");
+    }
+  });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("/auth/status")
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.loggedIn) {
+        document.getElementById("loginButton").style.display = "none";
+        document.getElementById("logoutButton").style.display = "block";
+        document.getElementById(
+          "welcomeMessage"
+        ).textContent = `Welcome, ${data.user.username}`;
+      } else {
+        document.getElementById("loginButton").style.display = "block";
+        document.getElementById("logoutButton").style.display = "none";
+        document.getElementById("welcomeMessage").textContent = "";
+      }
+    });
+    
+    const logoutButton = document.getElementById("logoutButton");
+    if (logoutButton) {
+        logoutButton.addEventListener("click", () => {
+            fetch("/auth/logout", {
+                method: "POST",
+            }).then(() => {
+                // redirect to index.html
+                window.location.href = "./index.html";
+            });
+        });
+    }
+    
+    const mainNav = document.getElementById("main-nav");
+    if (mainNav) {
+      const navList = mainNav.querySelector("ul");
+      if (navList) {
+        const loginNavItem = document.createElement("li");
+        const loginButton = document.createElement("button");
+        loginButton.textContent = "Login";
+        loginButton.id = "nav-login-button";
+        loginButton.onclick = () => {
+          if (loginDialog) {
+            loginDialog.showModal();
+          }
+        };
+        loginNavItem.appendChild(loginButton);
+        navList.appendChild(loginNavItem);
+      } else {
+        console.error("No <ul> found in #main-nav.");
+      }
+    } else {
+      console.error("#main-nav not found in the DOM.");
+    }
+}); // end of DOMContentLoaded event listener
