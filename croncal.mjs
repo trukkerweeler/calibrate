@@ -1,8 +1,8 @@
-// croncal.js
+// croncal.mjs
 import dotenv from 'dotenv';
 dotenv.config();
 
-import db from './db.js';
+import db from './db.mjs';
 import nodemailer from 'nodemailer';
 
 async function shouldRun() {

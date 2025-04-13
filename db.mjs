@@ -1,4 +1,4 @@
-// db.js
+// db.mjs
 
 import mysql from 'mysql2/promise';
 
