@@ -98,8 +98,13 @@ async function initializePage() {
             data["MAJOR_LOCATION"];
           document.getElementById("edit-minor-location").value =
             data["MINOR_LOCATION"];
+          document.getElementById("edit-purchase-date").value = data[
+            "PURCHASE_DATE"
+          ]
+            ? data["PURCHASE_DATE"].slice(0, 10)
+            : "";
           document.getElementById("edit-purchase-date").value =
-            data["PURCHASE_DATE"];
+            document.getElementById("edit-purchase-date").value || "";
           document.getElementById("edit-purchase-price").value =
             data["PURCHASE_PRICE"];
           document.getElementById("edit-status").value = data["STATUS"];
@@ -431,32 +436,50 @@ changeImageButton.addEventListener("click", () => {
     // Clear the file input after upload
     imagePicker.value = ""; // Reset the file input value
   }
-
-
 });
 
-  // listen for deleteImage click event
-  const deleteImageButton = document.getElementById("deleteImage");
-  deleteImageButton.addEventListener("click", async () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const deviceId = urlParams.get("id");
-    const deleteImageUrl = `http://localhost:${port}/image/${deviceId}`;
+// listen for deleteImage click event
+const deleteImageButton = document.getElementById("deleteImage");
+deleteImageButton.addEventListener("click", async () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const deviceId = urlParams.get("id");
+  const deleteImageUrl = `http://localhost:${port}/image/${deviceId}`;
 
-    try {
-      const response = await fetch(deleteImageUrl, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+  try {
+    const response = await fetch(deleteImageUrl, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-      if (response.ok) {
-        alert("Image deleted successfully!");
-      } else {
-        alert("Failed to delete image.");
-      }
-    } catch (error) {
-      console.error("Error deleting image:", error);
-      alert("An error occurred while deleting the image.");
+    if (response.ok) {
+      alert("Image deleted successfully!");
+    } else {
+      alert("Failed to delete image.");
     }
-  });
+  } catch (error) {
+    console.error("Error deleting image:", error);
+    alert("An error occurred while deleting the image.");
+  }
+});
+
+// Event listener for the "Cancel" button in the edit device dialog
+const editDialog = document.getElementById("edit-device-dialog");
+if (editDialog) {
+  const cancelEditButton = editDialog.querySelector("#cancelDeviceEdit");
+  if (cancelEditButton) {
+    cancelEditButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      editDialog.close();
+    });
+  } else {
+    console.error(
+      "Button with id 'cancelDeviceEdit' not found in edit dialog."
+    );
+  }
+} else {
+  console.error(
+    "Dialog element with attribute 'edit-device-dialog' is missing or not a <dialog>."
+  );
+}

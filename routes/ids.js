@@ -1,5 +1,5 @@
-import express from 'express';
-import mysql from 'mysql2/promise';
+const express = require('express');
+const mysql = require('mysql2/promise');
 const router = express.Router();
 
 // Get the next ID for a new record
@@ -71,4 +71,4 @@ router.post('/', async (req, res) => {
     }
 });
 
-export default router;
+module.exports = router;

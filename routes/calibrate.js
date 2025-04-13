@@ -1,5 +1,5 @@
-import express from 'express';
-import mysql from 'mysql2';
+const express = require('express');
+const mysql = require('mysql2');
 const router = express.Router();
 
 // ==================================================
@@ -104,4 +104,4 @@ router.post('/', async (req, res) => {
     }
 });
 
-export default router;
+module.exports = router;

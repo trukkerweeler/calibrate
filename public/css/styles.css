@@ -32,7 +32,11 @@ input {
     border-radius: 5px; /* Rounded corners for the button */
 }
 
-.btn:hover {
+.btn-cancel:hover {
+    background-color: #e53935; /* Darker red on hover */
+}
+
+.btn-save:hover {
     background-color: #45a049; /* Darker green on hover */
 }
 .page-header {
@@ -316,7 +320,7 @@ dialog {
 
 .dialog-actions {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
     margin-top: 1rem; /* Space above the actions */
 }
 
@@ -402,6 +406,9 @@ dialog {
     padding: 20px; /* Padding inside the grid */
     background-color: #fff; /* White background for the grid */
     border-radius: 8px; /* Rounded corners for the grid */
+    max-width: 1200px; /* Maximum width of the grid */
+    margin-left: auto; /* Centering the grid */
+    margin-right: auto; /* Centering the grid */
 }
 
 #login-text, #register-text {

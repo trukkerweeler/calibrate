@@ -1,6 +1,6 @@
-import express from "express";
-import mysql from "mysql2";
-import bcrypt from "bcrypt";
+const express = require("express");
+const mysql = require("mysql2");
+const bcrypt = require("bcrypt");
 const router = express.Router();
 
 // Middleware to hash passwords before saving to the database
@@ -118,4 +118,4 @@ router.delete("/delete", async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;

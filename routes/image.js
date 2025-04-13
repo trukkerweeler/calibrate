@@ -1,6 +1,6 @@
-import express from "express";
-import mysql from "mysql2";
-import multer from "multer";
+const express = require("express");
+const mysql = require("mysql2");
+const multer = require("multer");
 
 const router = express.Router();
 
@@ -47,17 +47,9 @@ router.get("/:id", async (req, res) => {
     console.error("Error connecting to DB: ", err);
     res.sendStatus(500);
   }
-}
-);
-
+});
 
 router.post("/", upload.single("image"), async (req, res) => {
-  // console.log("Received request to save image");
-  // console.log("Request body: ", req.body);
-  // console.log("Request headers: ", req.headers);
-  // console.log("Request method: ", req.method);
-  // console.log("Request URL: ", req.url);
-
   try {
     const connection = mysql.createConnection({
       host: process.env.DB_HOST,
@@ -143,4 +135,4 @@ router.delete("/:id", async (req, res) => {
 });
 // ==================================================
 
-export default router;
+module.exports = router;

@@ -1,7 +1,14 @@
-import express from "express";
-import mysql from "mysql2";
-
+const express = require("express");
 const router = express.Router();
+const mysql = require("mysql2");
+
+
+// // Middleware to check if the user is logged in
+// const requireLogin = require("../middleware/auth.js");
+// router.get("/", requireLogin, (req, res) => {
+//   res.json({ message: "You are logged in" });
+// });
+
 
 // ==================================================
 // Get all records
@@ -246,4 +253,4 @@ router.put("/editdevcal", async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;

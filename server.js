@@ -1,8 +1,9 @@
-
-import cors from "cors";
-import express from "express";
-import session from "express-session";
-import bcrypt from "bcrypt";
+const cors = require("cors");
+const express = require("express");
+const session = require("express-session");
+const bcrypt = require("bcrypt");
+const cron = require("node-cron");
+const { exec } = require("child_process");
 
 const app = express();
 // const port = process.env.APP_PORT || 3010;
@@ -11,14 +12,6 @@ const port = 3010;
 // Add middleware to parse JSON and URL-encoded data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// Set up session management
-app.use(session({
-  secret: "your_secret_key",
-  resave: false, 
-  saveUninitialized: false
-}));
-
 
 app.use(cors());
 
@@ -30,30 +23,32 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(
+  session({
+    secret: "your_secret_key",
+    resave: false,
+    saveUninitialized: true,
+  }));
 
-import authRoutes from "./routes/auth.js";
+const authRoutes = require("./routes/auth.js");
 app.use("/auth", authRoutes);
 
-import userRoutes from "./routes/user.js";
+const userRoutes = require("./routes/user.js");
 app.use("/user", userRoutes);
 
-import deviceRoutes from "./routes/device.js";
+const deviceRoutes = require("./routes/device.js");
 app.use("/device", deviceRoutes);
 
-import calibrateRoutes from "./routes/calibrate.js";
+const calibrateRoutes = require("./routes/calibrate.js");
 app.use("/calibrate", calibrateRoutes);
 
-import idRoutes from "./routes/ids.js";
+const idRoutes = require("./routes/ids.js");
 app.use("/ids", idRoutes);
 
-import imageRoutes from "./routes/image.js";
+const imageRoutes = require("./routes/image.js");
 app.use("/image", imageRoutes);
 
 // run croncal.js every 2 minutes if in test mode, otherwise every day at 8am
-import cron from "node-cron";
-import { exec } from "child_process";
-
-
 const isTestMode = process.env.NODE_ENV === "test";
 const schedule = isTestMode ? "*/2 * * * *" : "0 8 * * *";
 
@@ -70,7 +65,6 @@ cron.schedule(schedule, () => {
     console.log(`stdout: ${stdout}`);
   });
 });
-
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

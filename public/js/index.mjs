@@ -27,7 +27,7 @@ const registerButton = document.createElement("button");
 registerButton.textContent = "Register Now";
 registerButton.id = "subscribe-button";
 registerButton.onclick = () => {
-    window.location.href = `https://${port}/register`;
+    window.location.href = `http://${port}/register`;
 };
 registerButton.onclick = () => {
     if (user) {
@@ -79,5 +79,30 @@ const cancelLoginButton = document.getElementById("cancelLogin");
 if (cancelLoginButton && loginDialog) {
     cancelLoginButton.addEventListener("click", () => {
         loginDialog.close();
+    });
+}
+
+// listen for the submitLogin button click event
+const submitLoginButton = document.getElementById("submitLogin");
+if (submitLoginButton && loginDialog) {
+    submitLoginButton.addEventListener("click", async (event) => {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        const response = await fetch(`http://localhost:${port}/auth/login`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username, password }),
+        });
+
+        if (response.ok) {
+            window.location.href = `http://localhost:${port}/devices.html`;
+        } else {
+            alert("Invalid username or password");
+        }
     });
 }

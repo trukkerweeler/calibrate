@@ -1,24 +1,35 @@
-import express from 'express';
-import bcrypt from 'bcrypt';
-import { isLoggedIn } from '../middleware/auth.js';
-import { getUsers } from '../controllers/userController.js';
+const express = require('express');
+const bcrypt = require('bcrypt');
+const { isLoggedIn } = require('../middleware/auth.js');
 
 const router = express.Router();
 
-router.get('/users', async (req, res) => {
-    try {
-        const users = await getUsers();
-        res.json(users);
-    } catch (error) {
-        res.status(500).json({ error: 'Failed to fetch users' });
-    }
+// fetch users from a database or in-memory store
+let userUrl  = 'http://localhost:3010/user';
+let users = [];
+(async () => {
+  users = await fetch(userUrl).then(res => res.json());
+})();
+
+router.post('/register', async (req, res) => {
+  const { username, password } = req.body;
+  const existingUser = users.find(user => user.USER_ID === username);
+
+  if (existingUser) {
+    return res.status(400).json({ message: 'User already exists' });
+  }
+
+  const hashedPassword = await bcrypt.hash(password, 10);
+  users.push({ username, password: hashedPassword });
+  res.status(201).json({ message: 'User registered' });
 });
 
-// Login route
+// POST /auth/login
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
-  const user = users.find(u => u.username === username);
-  if (!user || !(await bcrypt.compare(password, user.password))) {
+  const user = users.find(u => u.USER_ID === username);
+
+  if (!user || !(await bcrypt.compare(password, user.PASSWORD))) {
     return res.status(401).json({ message: 'Invalid credentials' });
   }
 
@@ -26,27 +37,14 @@ router.post('/login', async (req, res) => {
   res.json({ message: 'Logged in' });
 });
 
-// Logout route
-router.post('/logout', (req, res) => {
-  req.session.destroy(err => {
-    if (err) return res.status(500).json({ message: 'Logout failed' });
-    res.clearCookie('connect.sid');
-    res.json({ message: 'Logged out' });
-  });
-});
+// // POST /auth/logout
+// router.post('/logout', (req, res) => {
+//   req.session.destroy(err => {
+//     if (err) return res.status(500).json({ message: 'Error logging out' });
+//     res.clearCookie('connect.sid');
+//     res.json({ message: 'Logged out' });
+//   });
+// });
 
-// Check login status
-router.get('/status', (req, res) => {
-  if (req.session.user) {
-    res.json({ loggedIn: true, user: req.session.user });
-  } else {
-    res.json({ loggedIn: false });
-  }
-});
 
-// Example protected route
-router.get('/profile', isLoggedIn, (req, res) => {
-  res.json({ message: `Hello, ${req.session.user.username}` });
-});
-
-export default router;
+module.exports = router;
