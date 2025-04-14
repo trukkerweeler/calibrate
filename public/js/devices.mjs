@@ -124,6 +124,13 @@ if (!addDeviceBtn) {
         "Dialog element with id 'create-device-dialog' is missing or not a <dialog>."
       );
     }
+    // clear the form fields
+    const form = document.querySelector("form");
+    if (form) {
+      form.reset();
+    } else {
+      console.error("Form element is missing or not found.");
+    }
   });
 }
 
@@ -154,6 +161,12 @@ function getRecords() {
             `;
       mainElement.appendChild(filterContainer);
 
+      let tableContainer = document.createElement("div");
+      tableContainer.style.overflowX = "auto"; // Enable horizontal scrolling
+      tableContainer.style.maxHeight = "500px"; // Set a max height for vertical scrolling
+      tableContainer.style.overflowY = "auto"; // Enable vertical scrolling
+      tableContainer.classList.add("table-container");
+
       let deviceTableTemplate = `<table class="table table-striped table-bordered table-hover" id="deviceTable">`;
       deviceTableTemplate += `<thead><tr>`;
       for (const field of myFields) {
@@ -166,7 +179,9 @@ function getRecords() {
       }
       deviceTableTemplate += `</tbody>`;
       deviceTableTemplate += `</table>`;
-      mainElement.insertAdjacentHTML("beforeend", deviceTableTemplate);
+
+      tableContainer.innerHTML = deviceTableTemplate;
+      mainElement.appendChild(tableContainer);
 
       // Add filter functionality
       const filterInput = document.getElementById("filterInput");
