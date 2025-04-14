@@ -20,8 +20,8 @@ Content-Type: application/json
     "SERIAL_NUMBER": "001",
     "STATUS": "A"
 }
-
 ###
+
 GET http://localhost:3010/calibrate/nextId
 
 ###
@@ -36,12 +36,14 @@ Content-Type: application/json
   "PASSWORD": "password"
 }
 ###
+
 DELETE http://localhost:3010/user/delete
 Content-Type: application/json
 
 {
-  "USER_ID": "tkent",
+  "USER_ID": "bob"
 }
 ###
+
 GET http://localhost:3010/user
 ###

@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon --env-file=.env server.js"
+    "dev": "node --env-file=.env server.js",
+    "start": "node server.js",
+    "cron": "node cron.js"
   },
   "keywords": [],
   "author": "",

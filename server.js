@@ -1,13 +1,11 @@
 const cors = require("cors");
 const express = require("express");
 const session = require("express-session");
-const bcrypt = require("bcrypt");
 const cron = require("node-cron");
 const { exec } = require("child_process");
 
 const app = express();
-// const port = process.env.APP_PORT || 3010;
-const port = 3010;
+const port = process.env.APP_PORT || 3009;
 
 // Add middleware to parse JSON and URL-encoded data
 app.use(express.json());
