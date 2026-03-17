@@ -2,7 +2,7 @@
 This software tracks inspection equipment that must be traceable to NIST. It is set up to send an email every day with a list of overdue items. It also has provisions for entering an image of the equipment (device) to ease the learning curve of new employees.
 
 
-[Calibrate demo]pending
+[Calibrate demo](https://youtu.be/Z0fJnVp1Sxc)
 
 # Cloud Database
 This software uses Amazons EC2 database service.
@@ -17,3 +17,4 @@ Javascript, Express, Nodejs
 
 # Future Work
 - Create pages for entering calibration data for in-house calibrated items. At this time it only supports calibration by vendors where a certificate of calibration is received.
+- Password strength controls.

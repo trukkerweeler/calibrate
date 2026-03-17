@@ -1,0 +1,196 @@
+"GageID","ToolID","PartNo","Description","Custodian","CurrentStatus","WithCustodian","InToolControl","InCalibration","OutOfService","CalibrationStatus","SpecificDate","ScheduleDays","ScheduleDate","NoCalibrationReq","CalibrationDue","Location","Notes","Lab","Path","CertificateNotes","CertificateProcedure","Received","Left","General","SubmittedTo","SubmittedBy","DateCal"
+1,"CI-113","n/a","Thread gage, plug, go/no go, 6-32 UNC-2B STI","QA",2,7/15/2021 0:00:00,6/8/2021 0:00:00,9/15/2023 0:00:00,,1,,365,11/6/2024 0:00:00,0,11/6/2025 0:00:00,"QA","Balax","WSC","K:\Quality - Records\7150 - Calibration\Calibration\CI-113 Thread Gage 6-32 UNC-2B STI\CI-113 - 2310005.pdf",,,,,,,,
+2,"CI-083","Omega CT87LF","Temperature Recorder","QA",0,3/26/2021 0:00:00,,,,1,7/21/2020 0:00:00,365,2/20/2024 0:00:00,0,2/19/2025 0:00:00,"Paint","MFG - Omega","National Calibration Inc.","K:\Quality - Records\7150 - Calibration\Calibration\CI-083 Temp Recorder\CI-083 - 668273.pdf",,,,,,,,
+3,"CI-274","n/a","Thread gage, plug, go/no go 2-56 UNC-2B","QA",,,,,,1,,365,11/6/2024 0:00:00,0,11/6/2025 0:00:00,"GRC","Balax","Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-274 Thread Gage 2-56 UNC-2B\Certificate 856255.pdf",,,,,,,,
+4,"CI-112","n/a","Thread gage, plug, go/no go, 4-40 UNC-2B STI","QA",0,11/30/2022 0:00:00,,,,2,,365,1/1/2222 0:00:00,1,,"Scrapped","Greenfield","Reference only","",,,,,,,,
+5,"CI-159","BT-ST-751","Torque wrench, dial","Shop",,,,,,1,,365,1/29/2024 0:00:00,0,1/28/2025 0:00:00,"Shop - Assembly","Daniels","Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-159 Dial Torque Wrench\Certificate 868576.pdf",,,,,,,,
+6,"CI-132","Watlow PM6R2CJ","Temp. Controller ","Shop",0,10/12/2022 0:00:00,,,,1,,365,2/20/2024 0:00:00,0,2/19/2025 0:00:00,"Chemical Conversion & Heat Treat Area","Mfr.: Watlow","National Calibration","K:\Quality - Records\7150 - Calibration\Calibration\CI-132 Temp Controller\CI-132 - 668298.pdf",,,,,,,,
+9,"CI-044","25-441","Indicator, dial, 1""","QA",,,,,,0,2/13/2026 0:00:00,365,9/1/2023 0:00:00,0,2/13/2026 0:00:00,"Out at calibration","Starrett","Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-044 1in Dial Ind\CI-044 - 231005.pdf",,,,,,,,
+10,"CI-245","n/a","Thread gage, plug,go/no go, 8-32 UNC-2B STI ","QA",0,12/1/2022 0:00:00,,,,2,,365,1/1/2222 0:00:00,1,,"Missing","Balax","Western States","K:\Scans\Calibration\CI-245 Thread Gage 8-32 UNC-2B STI\CI-245 - OOTRep.pdf",,,,,,,,
+11,"CI-285","n/a","Thread gage, plug,go/no go, 8-32 UNC-2B","QA",3,12/1/2022 0:00:00,,,6/5/2023 0:00:00,2,,365,1/1/2222 0:00:00,1,,"Scrapped","Vermont Gage","Western States","K:\Scans\Calibration\CI-285 Thread Gage 8-32 UNC-2B\CI-285 - OOTRpt.pdf",,,,,,,,
+12,"CI-254","n/a","Thread gage, plug, go/no go, 6-32 UNC-3B","QA",,,,,,1,,365,11/6/2024 0:00:00,0,11/6/2025 0:00:00,"GRC","Balax","Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-254 Thread Gage 6-32 UNC-3B\Certificate 856254.pdf",,,,,,,,
+13,"CI-233","n/a","Thread gage, plug, go/no go, 10-32 UNJF-3B","QA Cabinet",0,3/13/2025 0:00:00,,,,1,,365,3/13/2025 0:00:00,0,3/13/2026 0:00:00,"QA Cabinet","","Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-233 Thread Gage 10-32 UNJF-3B\Certificate 868569.pdf",,,,,,,,
+14,"CI-089","n/a","Thread gage, plug, go/no go, 10-32 UNF-2B","QA",0,,,,,1,,365,11/6/2024 0:00:00,0,11/6/2025 0:00:00,"GRC","SPI","Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-089 Thread Gage 10-32 UNF-2B\Certificate 856256.pdf",,,,,,,,
+15,"CI-065","n/a","Thread gage, plug, go/no go, 1/4-28 UNF-2B","QA",,,,,,1,,365,11/6/2024 0:00:00,0,11/6/2025 0:00:00,"GRC","Vermont Gage","Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-065 Thread Gage 1_4-28 UNF-2B\Certificate 856251.pdf",,,,,,,,
+16,"CI-220","n/a","Thread gage, plug, go/no go, 5/16-24 UNF-2B","QA",,,,,,1,,365,4/29/2024 0:00:00,0,4/29/2025 0:00:00,"GRC","Vermont Gage","Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-220 Thread Gage 5_16-24 UNF-2B\Certificate 856257.pdf",,,,,,,,
+17,"CI-279","n/a","Thread gage, ring, go/no go set, 2-56 UNC-2A","QA",0,12/1/2022 0:00:00,,,,2,,365,1/1/2222 0:00:00,1,,"Missing","Vermont Gage","Western States","K:\Scans\Calibration\CI-279 Thread Gage 2-56 UNC-2A\CI-279 - 220416.pdf",,,,,,,,
+18,"CI-291","n/a","Thread gage, ring, go, 8-32 UNJC-2A","QA",0,5/1/2024 0:00:00,,,,1,5/20/2021 0:00:00,365,5/16/2024 0:00:00,0,5/16/2025 0:00:00,"GRC","Vermont Gage","Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-291 Thread Gage Go 8-32 UNJC-2A\Certificate 868571.pdf",,,,,,,,
+19,"CI-292","n/a","Thread gage, ring, no go, 8-32 UNJC-2A","QA Cabinet",0,5/1/2025 0:00:00,,,,1,,365,5/16/2024 0:00:00,0,5/16/2025 0:00:00,"GRC","Vermont Gage","Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-292 Thread Gage NoGo 8-32 UNJC-2A\Certificate 868572.pdf",,,,,,,,
+20,"CI-270","Watlow PM6C1EJ-AAFJAAA","Temp. Controller","Shop",,,,,,1,,365,2/20/2024 0:00:00,0,2/19/2025 0:00:00,"Shop","Watlow
+Freezer","National","K:\Quality - Records\7150 - Calibration\Calibration\CI-270 Temp Controller\CI-270 - 668274.pdf",,,,,,,,
+21,"CI-124","Precision Digital PD546B-00","Temp. Controller","Shop",,,,,,1,,365,2/20/2024 0:00:00,0,2/19/2025 0:00:00,"Chemical Conversion & Heat Treat Area","Precision Digital","National Calibration","K:\Quality - Records\7150 - Calibration\Calibration\CI-124 Temp Controller\CI - 124 - 668296.pdf",,,,,,,,
+22,"CI-155","Omega CT87LF","Temperature Chart recorder","Shop",,,,,,1,4/6/2021 0:00:00,365,2/20/2024 0:00:00,0,2/19/2025 0:00:00,"Shop","Freezer","National Calibration","K:\Quality - Records\7150 - Calibration\Calibration\CI-155 Temp Chart Recorder\CI-155 - 668272.pdf",,,,,,,,
+23,"CI-160","Omega CT585B","Temperature Chart Recorder","Shop",,,,,,2,,365,2/13/2023 0:00:00,1,,"Paint","Paint 
+REPLACED BY CI-334
+","National Calibration","K:\Quality - Records\7150 - Calibration\Calibration\CI-160 Temp Chart Recorder\CI-160 - 668279.pdf",,,,,,,,
+24,"CI-190","Zeiss Contura G2","CMM","QA",0,3/25/2025 0:00:00,,,,1,7/19/2021 0:00:00,365,3/25/2025 0:00:00,0,3/25/2026 0:00:00,"QA","Requires annual certification
+
+","Zeiss","K:\Quality - Records\7150 - Calibration\Calibration\CI-190 Contura G2 CMM\CMM Certificate of Calibration March2023.pdf",,,,,,,,
+25,"CI-148","Model 51 II","Digital Thermometer","QA",0,11/30/2022 0:00:00,,,,2,,365,1/1/2222 0:00:00,1,,"Scrapped","Fluke 51 ll, S/N 92300014
+Removed from service.","National Calibration","K:\Scans\Calibration\CI-148 Digital Thermometer\CI-148 - 210626.pdf",,,,,,,,
+26,"CI-149","Honeywell UDC2500","Temp. Controller","Shop",,,,,,1,,365,2/20/2024 0:00:00,0,2/19/2025 0:00:00,"Paint","Paint","National Calibration","K:\Quality - Records\7150 - Calibration\Calibration\CI-149 Temp Controller\CI-149 - 668271.pdf",,,,,,,,
+27,"CI-235","Eurotherm Nanodac","Temp. Recorder Controller","Shop",,,,,,1,6/26/2021 0:00:00,365,2/20/2024 0:00:00,0,2/19/2025 0:00:00,"Chemical Conversion & Heat Treat Area","Eurotherm
+Chem room","National Calibration","K:\Quality - Records\7150 - Calibration\Calibration\CI-235 Temp Controller\CI-235 - 668297.pdf",,,,,,,,
+28,"CI-306","n/a","Thread gage, plug, go/no go 8-32 UNC-2B","QA",0,10/17/2023 0:00:00,,,,1,,365,11/6/2024 0:00:00,0,11/6/2025 0:00:00,"GRC",,"Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-306 Thread gage 8-32 UNC-2B\CI-306 - 231005.pdf",,,,,,,,
+29,"CI-307","n/a","Thread gage, plug, go/no go, 0-80 UNF-2B","QA",0,5/6/2025 0:00:00,,,,1,,365,4/17/2024 0:00:00,0,4/17/2025 0:00:00,"GRC",,"Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-307 Thread gage 0-80 UNF-2B\Certificate 856248.pdf",,,,,,,,
+30,"CI-145","52-008-024","Caliper, Dial, 24""","QA",,,,,,1,,365,11/6/2024 0:00:00,0,11/6/2025 0:00:00,"QA","Fowler","Western States Calibration","K:\Quality - Records\7150 - Calibration\Calibration\CI-145 Dial Caliper, 24 inch\CI-145 - 231005.pdf",,,,,,,,
+31,"CI-277","500-193","Caliper, digital, 12""","QA",,,,,,1,,365,4/26/2024 0:00:00,0,4/26/2025 0:00:00,"QA","Mitutoyo","Western States Calibration","K:\Quality - Records\7150 - Calibration\Calibration\CI-277 Caliper, 12 inch\Certificate 880265.pdf",,,,,,,,
+32,"CI-141","505-677","Caliper, Dial, 12""","Brake Area",0,4/24/2025 0:00:00,,,,1,,365,4/18/2024 0:00:00,0,4/18/2025 0:00:00,"Brake","Mitutoyo","Western States Calibration","K:\Quality - Records\7150 - Calibration\Calibration\CI-141 Caliper, dial, 12\CI-141 - 231005.pdf",,,,,,,,
+33,"CI-308","505-645-50","Caliper, dial, 12"" - reference only","Shop",,,,,,2,,365,1/1/2222 0:00:00,1,,"Somphane ","Employee owned
+Reference only","Western States Calibration",,,,,,,,,
+34,"CI-158","","Caliper, dial, 24""","QA",0,4/24/2025 0:00:00,,,,1,,365,4/24/2025 0:00:00,0,4/24/2026 0:00:00,"QA Techician Lab","
+
+","Western States Calibration","K:\Scans\Calibration\CI-158 Caliper, 24 inch\CI-158 - 220416.pdf",,,,,,,,
+35,"CI-138","505-720","Caliper, dial, 12""","Shop",,,,,,1,,365,11/6/2024 0:00:00,0,11/6/2025 0:00:00,"Quarantine waiting cal","Mitutoyo
+
+Punch","Western States Calibration","K:\Quality - Records\7150 - Calibration\Calibration\CI-138 Caliper, 12 inch\CI-138 - 2310005.pdf",,,,,,,,
+36,"CI-132-TC1","n/a","Temperature Probe, Type K - cal not required","Shop",,,,,,2,,365,1/1/2222 0:00:00,1,,"Despatch Oven","The Probeused for the nanodac Recorder Controller","National Calibration","K:\Scans\Calibration\CI-132-TC1 Thermocouple\CI-132-TC1 220708.pdf",,,,,,,,
+37,"CI-164-TC1","n/a","Temperature Probe, Type K - cal not required","Shop",0,4/7/2021 0:00:00,,,,2,,365,1/1/2222 0:00:00,1,,"Despatch Oven","For Digital Data Recorder - Does not require further calibration","N/A",,,,,,,,,
+38,"CI-124-TC3","n/a","Temperature Probe, Type J - cal not required","Shop",,,,,,2,,365,1/1/2222 0:00:00,1,,"Grieve Oven","Lower Probe","National Calibration","K:\Scans\Calibration\CI-124-TC3 Thermocouple\CI-124-TC3 220708.pdf",,,,,,,,
+40,"CI-151","Honeywell DR4300","Temp. Chart Recorder","Shop",,,,,,1,,365,2/20/2024 0:00:00,0,2/19/2025 0:00:00,"Paint",,"National Calibration","K:\Quality - Records\7150 - Calibration\Calibration\CI-151 Temp Chart Recorder\CI-151 - 668275.pdf",,,,,,,,
+41,"CI-136","DaqLab 2005","Data Logger","QA",3,,,7/8/2021 0:00:00,2/4/2022 0:00:00,2,,92,11/4/2021 0:00:00,1,,"QA Techician Lab","S/N 802736","Calibration Solutions","K:\Scans\Calibration\CI-136 Data Logger\CI-136 - Data Logger DaqLab 2005 - 210708.pdf","NIST","NAV 17-20ST-232 02/17",,,,,,
+42,"CI-309","n/a","Thread gage, plug, go/no go, 8-32 UNC-2B STI","QA",0,12/1/2022 0:00:00,,,,2,,365,1/1/2222 0:00:00,1,,"Scrapped","OUT OF TOLERANCE REMOVED FROM SERVICE","Western States","K:\Scans\Calibration\CI-309 Thread Gage 8-32 UNC-2B STI\CI-309 - 231005.pdf",,,,,,,,
+43,"CI-258","n/a","Thread gage, plug, go/no go, 6-32 UNJC-3B","QA",1,2/13/2025 0:00:00,2/13/2026 0:00:00,,,1,,365,2/28/2025 0:00:00,0,2/28/2027 0:00:00,"QA",,"Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-258 Thread Plug, 6-32 UNJC-3B\Certificate 868568.pdf",,,,,,,,
+44,"CI-221","n/a","Thread gage, plug, go/no go, 1/4-20 UNC-2B STI","QA",,,,,,1,,365,4/29/2024 0:00:00,0,4/29/2025 0:00:00,"GRC",,"Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-221 Thread Plug, 14-20 UNC-2B\Certificate 856253.pdf",,,,,,,,
+45,"CI-081","n/a","Thread gage, plug, go/nogo, 7/16-20 UNF-2B","QA Cabinet",0,3/13/2025 0:00:00,,,,1,,365,3/7/2025 0:00:00,0,3/7/2026 0:00:00,"QA Cabinet","","Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-081 Thread Plug, 716-20 UNF-2B\Certificate 868570.pdf",,,,,,,,
+46,"CI-218","n/a","Thread gage, ring, no go, 4-40 UNC-2A","QA",0,12/1/2022 0:00:00,,,,1,,365,1/16/2024 0:00:00,0,1/15/2025 0:00:00,"GRC",,"Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-218 Thread Ring, 4-40 UNC-2A, No Go\Certificate 868573.pdf",,,,,,,,
+47,"CI-288","n/a","Thread gage, ring, go, 4-40UNC-2A","QA",0,2/16/2023 0:00:00,,,,1,,365,2/16/2025 0:00:00,0,2/16/2026 0:00:00,"GRC",,"Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-288 Thread Ring, 4-40 UNC-2A, Go\Certificate 868574.pdf",,,,,,,,
+48,"CI-310","Extech 421502","Digital thermometer, K/J","Shop",0,7/12/2021 0:00:00,,,,1,6/24/2021 0:00:00,365,2/20/2024 0:00:00,0,2/19/2025 0:00:00,"QA Techician Lab","Extech
+serial #20000879
+Calibration of this device is awaiting cal expiration of CI-148, at which time this thermometer will replace CI-148.","National Calibration","K:\Quality - Records\7150 - Calibration\Calibration\CI-310 Digital Thermometer\CI-310 - 668299.pdf",,,,,,,,
+49,"CI-289","1600A","Durometer gage","QA",0,12/1/2022 0:00:00,,,,2,,,1/1/2222 0:00:00,1,,"Scrapped","Rex Co.
+Taken out of service. Was used for checking the Wet Adhesion Roller and is no longer used for this purpose.","Western States",,,,,,,,,
+50,"CI-078","PA-1411","Roller for wet adhesion","QA",,,,,,2,,365,1/1/2222 0:00:00,1,,"Missing","Gardco","Western States","K:\Scans\Calibration\CI-078 Gardco Roller\CI-078 - 20220430.pdf",,,,,,,,
+51,"CI-056","BRIX30","0-30% solids (Brix) Scale #1375301S","Shop",,,,,,2,,365,1/1/2222 0:00:00,1,,"Quarantine - cal before use",,"Christensen Industries","K:\Scans\Calibration\CI-056 Handheld Refractometer\CI-056 - Refractometer - 220215.pdf","Reichert 137530L0 Instructions
+
+BRIX Calibration Standard Fluids
+• Dist Water (0°)
+• 7.5° Solution
+• 15° Solution
+
+• Allowable Tolerances. ±0.2°",,,,,,,
+52,"CI-311","n/a","Thread gage, plug, go/no go,10-32 UNF-2B STI","QA",,,,,,2,,365,1/1/2222 0:00:00,1,,"Scrapped","OUT OF TOLERANCE REMOVED FROM SERVICE","Vermont Gage","K:\Scans\Calibration\CI-311 Thread Gage, 10-32 UNC-2B, STI\Scan2021-05-23_132437.pdf",,,,,,,,
+53,"CI-312","n/a","Thread gage, plug, go/no go, 4-40 UNC-2B STI","QA",0,12/1/2022 0:00:00,,,,2,,365,1/1/2222 0:00:00,1,,"Scrapped","OUT OF TOLERANCE REMOVED FROM SERVICE","Vermont Gage","K:\Scans\Calibration\CI-312 Thread gage, 4-40 UNC-2B STI\CI-312 - 231005.pdf",,,,,,,,
+54,"CI-225","n/a","Caliper, Dial, 12""","QA",,,,,,1,,365,6/15/2023 0:00:00,0,6/14/2024 0:00:00,"QA","Brown & Sharpe","Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-225 Caliper\890732.pdf",,,,,,,,
+55,"CI-169-TC1","n/a","Temperature Probe - cal not required","Shop",,,,,,2,11/9/2028 0:00:00,365,1/1/2222 0:00:00,1,,"Grieve Oven","This is a recorder probe and requires calibration before first use, but not recurrent calibration.","No recurrent calibration","K:\Scans\Calibration\CI-169-TC1 Temp Probe\CI-169-TC1 - Temp Probe - 181109.pdf",,,,,,,,
+56,"CI-313","pH5F","Oakton pHTestr 5F - cal before use","QA",,,,,,2,,365,1/1/2222 0:00:00,1,,"QA Techician Lab","S/N T521041021
+This device requires an accuracy check or recalibration at least once every week of use.
+Keep the probe wet by capping it with its cap filled to the fill line with distilled water.  
+
+S/N T521016011","Calibration performed in-house per the manufactureres instructions (expiration date not tracked in this database; marked as ""No calibration required"").
+",,"Calibrate, at least weekly, per the manufacturer's instructions use the specified solution standards.",,,,,,,
+57,"CI-314-TC1","n/a","Thermocouple Temperature Probe  - cal not required","Shop",,,,,,2,,365,1/1/2222 0:00:00,1,,"Despatch Oven","Used for over temp control - Does not require further calibration","N/A",,,,,,,,,
+58,"CI-153","AEMC 5600","Micro-Ohmmeter","",,,,,,1,,365,6/10/2024 0:00:00,0,6/10/2025 0:00:00,"Shop","","Trescal","K:\Scans\Calibration\CI-153 Micro-Ohmmeter\CI-153 - 220520 - mcl.pdf",,,,,,,,
+59,"CI-315","n/a","Thread Plug, go/no go, M5X.80-5H STI","QA",,,,,,2,,365,1/1/2222 0:00:00,1,,"Scrapped","Kato","Kato","K:\Scans\Calibration\CI-315 Thread gage M5X.80-5H STI\Certificate 856247(1).pdf",,,,,,,,
+60,"CI-316","n/a","Thread gage, plug, go/no go 5/16-18 UNC-2B STI","QA",,,,,,1,10/17/2023 0:00:00,365,11/6/2024 0:00:00,0,11/6/2025 0:00:00,"GRC",,"Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-316 Thread Plug 516-18 UNC-2B STI\Certificate 856250.pdf",,,,,,,,
+61,"CI-165","n/a","Temperature Controller, Tank 1 -  cal not required","Shop",,,,,,2,8/1/2018 0:00:00,365,1/1/2222 0:00:00,1,,"Chemical Conversion & Heat Treat Area","Temperature controlled by thermometer","Western States Calibration",,,,,,,,,
+62,"CI-166","n/a","Temperature Controller, Tank 3 - cal not required","Quality Tech",,,,,,2,8/1/2018 0:00:00,365,1/1/2222 0:00:00,1,,"Chemical Conversion & Heat Treat Area","Temperature controlled by thermometer","Western States Calibration",,,,,,,,,
+63,"CI-173","Omega DP132","Temperature & Process Monitor","QA",2,,,9/24/2021 0:00:00,9/24/2021 0:00:00,1,,365,2/20/2024 0:00:00,0,2/19/2025 0:00:00,"Chemical Conversion & Heat Treat Area","S/N 7480891
+Tank #1 Temperature Monitoring
+Chemical room
+","National Calibration or Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-173 Temp Controller\CI-173 - 668289.pdf",,,,,,,,
+64,"CI-174","Omega DP132","Temperature & Process Monitor","Shop",2,,,9/24/2021 0:00:00,,1,,365,2/20/2024 0:00:00,0,2/19/2025 0:00:00,"Chemical Conversion & Heat Treat Area","S/N 7380097
+Tank #3 - Temperature Monitoring
+Chemical room","National Calibration or Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-174 Temp Controller\CI-174 - 668288.pdf",,,,,,,,
+65,"CI-177","Omega DP132","Temperature & Process Monitor","Shop",2,,,9/24/2021 0:00:00,,1,,365,2/20/2024 0:00:00,0,2/19/2025 0:00:00,"Chemical Conversion & Heat Treat Area","S/N 7480890
+Tank #8 - Temperature Monitoring
+Chemical room","National Calibration or Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-177 Temp Controller\CI-177 - 668287.pdf",,,,,,,,
+66,"CI-133","VI-2102/C","Viscosity Cup","Paint Area",0,4/1/2025 0:00:00,,10/28/2021 0:00:00,,1,,365,4/1/2025 0:00:00,0,4/1/2026 0:00:00,"Paint",,"Calibration Solutions ","K:\Scans\Calibration\CI-133 - Zahn Cup 2\CI-133 - ZAHN Cup 2 - 221112.pdf",,,,,,,,
+67,"CI-194","VI-EZ1C","Viscocity Cup","Paint Area",0,4/5/2025 0:00:00,,10/28/2021 0:00:00,,1,,365,4/1/2025 0:00:00,0,4/1/2026 0:00:00,"Paint","Paint","Calibration Solutions ","K:\Scans\Calibration\CI-194 - ZAHN Cup 1\CI-194 - ZAHN Cup 1 - 221112.pdf",,,,,,,,
+68,"CI-189","VI-3404C","Viscocity ""Dip"" Cup","Paint Area",0,4/1/2026 0:00:00,,,,1,,365,4/26/2025 0:00:00,0,4/26/2026 0:00:00,"Paint","Paint","Calibration Solutons","K:\Scans\Calibration\CI-189 Zahn Cup 4\CI-189 - ZAHN Cup 4 - 221112.pdf",,,,,,,,
+69,"CI-171","103R","Hardness Tester - cal before use","QA",,,,,,2,,365,1/1/2222 0:00:00,1,,"Inspection Lab","S/N R103P1557","Periodic calibration performed daily, when equipment used. Verification is performed using NIST traceable hardness test blocks.",,,,,,,,,
+71,"CI-054","436","0-1"" O.D. Micrometer","QA",,,,,,1,,365,12/20/2023 0:00:00,0,12/19/2024 0:00:00,"QA","Starrett","Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-054 Micrometer Rita's\862824.pdf",,,,,,,,
+72,"CI-181","n/a","0-1"" O.D. Micrometer","QA",,,,,,1,,365,11/6/2024 0:00:00,0,11/6/2025 0:00:00,"QA","Fowler","Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-181 O.D. Micrometer, 0-1\CI-181 - 231005.pdf",,,,,,,,
+73,"CI-317","n/a","FT-10-5K  Tensile Tester with Dillon FI-80 LED Digital Read Out","Shop",,,,,,1,,365,12/20/2023 0:00:00,0,12/19/2024 0:00:00,"Shop","sn 7E1902700003","S. A. Meier","",,,,,,,,
+75,"CI-197","n/a","0-1"" Thread Micrometer","QA",3,,,,1/18/2023 0:00:00,2,,365,10/7/2022 0:00:00,1,,"Storage","Fowler
+sn 130105400","Western States","K:\Scans\Calibration\CI-197 Thread Micrometer\Certificate 868575.pdf",,,,,,,,
+77,"CI-318","1042 94460-55","STOP WATCH","Shop",0,,,,,2,9/1/2023 0:00:00,,,1,,"Scrapped","S/N 210517371
+CAME WITH ISO 17025 CERTIFICATION","CONTROL COMPANY","K:\Scans\Calibration\CI-318 Stopwatch\CI-318 - 210618.pdf",,,,,,,,
+78,"CI-157-B1","58.23","AutoSigma 3000 Conductivity Reference Block","QA",,,,,,1,,365,8/12/2023 0:00:00,0,8/11/2024 0:00:00,"QA","STD 1 of AutoSigma 3000 standards bar attachment.","Micro Precicion","K:\Quality - Records\7150 - Calibration\Calibration\CI-157-B1 Conductivity Standard\5523631030270564.PDF","Eddy Current Conductivity @ 60 kHz",,,,,,,
+80,"CI-157","AutoSigma 3000","Electrical Conductivity Meter (Eddy Current) ","QA",,,,,,2,,365,11/23/2021 0:00:00,1,,"QA","SN:556563/05
+Accuracy is verified before each use and every 2 hours during use.
+Annual calibration not required ","Christensen Industries; continuously during use","K:\Quality - Records\7150 - Calibration\Calibration\CI-157 Conductivity Meter (lab cal not req'd)\5523631030270564.PDF","Use calibrated/verified Conductivity Reference Blocks to check/set calibration during use.","Technical Reference and Operation Manual",,,,,,
+81,"CI-320","689-2Z",".160-.360 Countersink Gage","QA Cabinet",0,5/6/2025 0:00:00,,,,1,,365,11/13/2023 0:00:00,0,11/12/2024 0:00:00,"GRC","Starrett","Western States",,,,,,,,,
+82,"CI-157-B2","17.30","AutoSigma 3000 Conductivity Reference Block","QA",,,,,,1,,365,8/12/2023 0:00:00,0,8/11/2024 0:00:00,"QA Techician Lab","Mfgr: Fisher","Micro Precision","K:\Quality - Records\7150 - Calibration\Calibration\CI-157-B2 Conductivity Standard\5523631030270564.PDF",,,,,,,,
+83,"CI-146","HygroThermoGraph","Temperature Chart Recorder","QA",,,,,,1,,365,2/20/2024 0:00:00,0,2/19/2025 0:00:00,"QA","Buy CT-485PS pens Omega Engineering Inc 
+other pens may affect reading","National Calibration or Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-146 Temp Chart Recorder\CI-146 - 668304.pdf",,,,,,,,
+84,"CI-321","WatlowPM6T2CH-BAAAAAG","Temp. Controller","Shop",0,12/1/2021 0:00:00,,,,2,1/19/2022 0:00:00,365,1/1/2222 0:00:00,1,,"Scrapped","MFR WATLOW
+despatch oven
+Removed from service","NATIONAL CALIBRATION","K:\Scans\Calibration\CI-321 - Temp Controller\CI-321 - 668307.pdf","After installation of the controller on 12/01/2021, the temperature was checked using CI-310 Digital Thermometer, Calibration Due 01/17/2022. The Temerature displayed was within 1° of that of the Digital Thermometer after applying probe and instrument error corrections.
+
+Calibration will be checked at the next equipment calibration cycle on 01/19/2022.",,,,,,,
+88,"CI-137","52-008-712","Caliper, Dial, 12""","Shop Weld Area",0,2/13/2025 0:00:00,,,,1,,365,2/19/2025 0:00:00,0,2/19/2026 0:00:00,"Shop Weld Area","Fowler","WSC","K:\Quality - Records\7150 - Calibration\Calibration\CI-137 Caliper, dial, 12\CI-137 - 231005.pdf",,,,,,,,
+89,"CI-102","n/a","Thread gage, plug, go/no go, 2-56 STI","QA",0,12/5/2022 0:00:00,,,,2,,365,1/1/2222 0:00:00,1,,"Scrapped","OUT OF TOLERANCE REMOVED FROM SERVICE","Western States","K:\Scans\Calibration\CI-102 Thread gage, plug, 2-56 UNC-3B STI\CI-102 - Thread gage, plug, 2-56 UNC-3B STI.pdf",,,,,,,,
+90,"CI-259","n/a","Thread gage, ring, no go, 1/4-28 UNJF-3A ","QA",0,10/12/2023 0:00:00,,,,2,,365,10/5/2022 0:00:00,1,,"QA",,"WSC","K:\Quality - Records\7150 - Calibration\Calibration\CI-259 Thread gage, plug, 14-28 UNJF-3A\CI-259 - 2310005.pdf",,,,,,,,
+91,"CI-260","n/a","Thread gage, ring, go, 1/4-28 UNJF-3A ","QA",0,5/6/2025 0:00:00,,,,1,,365,5/17/2024 0:00:00,0,5/17/2025 0:00:00,"GRC",,"WSC","K:\Quality - Records\7150 - Calibration\Calibration\CI-260 Thread Ring 14-28 UNJF-3A\CI-260 - 231005.pdf",,,,,,,,
+92,"CI-109","n/a","Thread gage, plug, 1/4-28 UNF-2B STI","QA",,,,,,1,,365,11/6/2024 0:00:00,0,11/6/2025 0:00:00,"GRC",,"WSC","K:\Quality - Records\7150 - Calibration\Calibration\CI-109 Thread gage, plug, 14-28 STI\Certificate 856252.pdf",,,,,,,,
+93,"CI-232","n/a","Thread gage, plug, go/no go,112-40 UNJC-3B - not in use","QA",,,,,,2,,365,1/1/2222 0:00:00,1,,"Quarantine - cal before use","Alameda
+Not in use","Western States",,,,,,,,,
+94,"CI-222","n/a","0.8-1.0 Bore gage  - reference only","QA",,,,,,2,,365,1/1/2222 0:00:00,1,,"Storage","SPI
+Reference only","Western States",,,,,,,,,
+95,"CI-223","Fluke 179","Multimeter - Reference only","QA",,,,,,2,,365,1/1/2222 0:00:00,1,,"QA Technician Lab","Reference only","Western States",,,,,,,,,
+96,"CI-140","Starrett 811","Dial indicator 811","QA",,,,,,2,,365,1/1/2222 0:00:00,1,,"Storage","For reference only","WesternStates",,,,,,,,,
+97,"CI-224","n/a","8"" Digital Caliper - cal before use","QA",0,5/6/2025 0:00:00,,,,1,,365,5/2/2025 0:00:00,0,5/2/2026 0:00:00,"Out for cal","Fowler","Western States",,,,,,,,,
+98,"CI-322","RHB","Refrctometer - Coolant tester - reference only","Shop",,,,,,2,,365,1/1/2222 0:00:00,1,,"Machining","Troy's office
+Referebce only","n/a",,,,,,,,,
+99,"CI-323","Extec RF-12","Refrctometer - Coolant tester - reference only","Shop",,,,,,2,,365,1/1/2222 0:00:00,1,,"Machining","Troy's office
+Reference only","n/a",,,,,,,,,
+100,"CI-324","CM-208Z","Coating thickness gauge ","Paint Area",0,3/13/2025 0:00:00,,,,1,,365,2/27/2025 0:00:00,0,2/27/2026 0:00:00,"Paint","","","K:\Quality - Records\7150 - Calibration\Calibration\CI-324 - Coating thickness gage\Certificate 896411.pdf",,,,,,,,
+101,"CI-325","100-2","Countersink Gage ","Shop",0,4/24/2025 0:00:00,,,,1,,365,4/24/2025 0:00:00,0,4/24/2026 0:00:00,"Shop","SN# 61575
+Jacobo
+","WESTERN STATES",,,,,,,,,
+102,"CI-326",,"Thread plug, go/no go, 2-56 UNC-2B STI",,,,,,,1,,365,4/29/2024 0:00:00,0,4/29/2025 0:00:00,"QA","GF Gage","Western States","K:\Quality - Records\7150 - Calibration\Calibration\CI-326 - 2-56 STI Thread plug\Certificate 880264.pdf",,,,,,,,
+103,"CI-327","1042 94460-55","Stop Watch",,,,,,,1,,730,3/14/2023 0:00:00,0,3/13/2025 0:00:00,"Paint","S/N 230179372","Manufacturer",,,,,,,,,
+104,"CI-328","505-720","Caliper, Dial, 12""","QA",,,,,,1,,365,9/27/2023 0:00:00,0,9/26/2024 0:00:00,"Weld","SN # 7153117
+PERSONAL TOOL MB
+SN# 5000560
+PERSONAL TOOL JL","WESTERN STATES ",,,,,,,,,
+105,"CI-329","505-645-50","Caliper, Dial, 12""","QA",,,,,,1,,365,11/7/2024 0:00:00,0,11/7/2025 0:00:00,"Shop","SN# 5000560
+PERSONAL TOOL JL","WESTERN STATES",,,,,,,,,
+106,"CI-330","1042 94460-55","Stopwatch",,,,,,,0,3/15/2025 0:00:00,,,0,3/15/2025 0:00:00,"Chemical Conversion & Heat Treat Area","S/N: 230180887",,,,,,,,,,
+107,"CI-331","08036284","Caliper, Digital, 8""",,,,,,,1,,365,9/27/2023 0:00:00,0,9/26/2024 0:00:00,"Shop","Personal Tool - Matt","Western States",,,,,,,,,
+108,"CI-332","708B7","Dial Indicator",,,,,,,,,,,0,,"Shop","Personal Tool - Matt",,,,,,,,,,
+109,"CI-333","N/A","WELD FILLET GAGE","QA",0,,,,,1,,365,2/12/2026 0:00:00,0,2/12/2027 0:00:00,"QA",,"WESTERN STATES",,,,,,,,,
+110,"CI-334","SD500","Humidity/Temperature Datalogger",,,,,,,0,2/13/2026 0:00:00,365,10/26/2023 0:00:00,0,2/13/2026 0:00:00,"Paint","s/n A.124202",,,,,,,,,,
+112,"CI-335","18200","Refractometer",,,,,,,,,,11/9/2023 14:50:00,0,,"Chemical Conversion & Heat Treat Area",,,,,,,,,,,
+113,"CI-320 RG",,"Gage, Setting Ring",,,,,,,1,,365,11/13/2023 0:00:00,0,11/12/2024 0:00:00,"Shop","In case with CI-320
+","Western States",,,,,,,,,
+114,"CI-336","No. 436","Micrometer, 1""","Personal AJM",0,4/24/2025 0:00:00,,,,1,,365,4/22/2025 0:00:00,0,4/22/2026 0:00:00,"QA Techician Lab","Personal Tool - Alex
+","Western States",,,,,,,,,
+115,"CI-170","","Caliper, 6"", Dial",,0,2/13/2025 0:00:00,,,,0,2/13/2026 0:00:00,365,2/26/2024 0:00:00,0,2/13/2026 0:00:00,,"Personal Tool - Alex
+",,,,,,,,,,
+116,"CI-337","505-645-50","Caliper, 12"", Dial",,,,,,,0,2/13/2026 0:00:00,365,1/5/2024 0:00:00,0,2/13/2026 0:00:00,,"Personal Tool - Alex",,,,,,,,,,
+117,"CI-057","S100883","PRESSURE GAGE",,,,,,,1,,365,8/12/2024 0:00:00,0,8/12/2025 0:00:00,"Weld","ASHCROFT","Western States",,,,,,,,,
+118,"CI-182","S102712","PRESSURE GAGE",,,,,,,1,,365,8/12/2024 0:00:00,0,8/12/2025 0:00:00,"Weld","ASHCROFT","Western States",,,,,,,,,
+119,"CI-070","S102712","PRESSURE GAGE",,,,,,,1,,365,8/12/2024 0:00:00,0,8/12/2025 0:00:00,"Weld","ASHCROFT","Western States",,,,,,,,,
+120,"CI-071",,,,,,,,,,,,8/6/2024 10:40:29,0,,,,,,,,,,,,,
+121,"CI-338","543-683","0.5"" .0005"" indicator","Personal AJM",0,3/3/2025 0:00:00,,,,1,,,8/12/2025 0:00:00,0,8/12/2024 0:00:00,"Inspection Lab","SN: 31225
+Acquired July 2024 (Used)","Western States",,,,,,,,,
+122,"CI-339",,"Force Gauge",,,,,,,1,,,8/8/2023 0:00:00,0,8/8/2023 0:00:00,"Weld","Bought from ebay? Received 8/7/2024.","Western States",,,,,,,,,
+123,"CI-340","601-8020","Analog Hydraulic Weld Gauge","QA",,,,,,0,10/17/2025 0:00:00,,,0,10/17/2025 0:00:00,"Weld","SN SH07202462",,,,,,,,,,
+124,"CI-341",,"Thread Ring Gag #10-32  UNF -2A Go","QA Cabinet",0,5/6/2025 0:00:00,,,,1,,365,2/7/2024 0:00:00,0,2/6/2025 0:00:00,"GRC",,,,,,,,,,,
+125,"CI-342",,"Thread Ring Gage #10-32 UNF-2A No Go","QA Cabinet",0,5/6/2025 0:00:00,,,,1,,365,2/7/2024 0:00:00,0,2/7/2026 0:00:00,"GRC","New Purchased PO 41630",,,,,,,,,,
+126,"CI-058",,"Plug Gage 5/16-24 UNF-2B","QA Cabinet",0,3/13/2025 0:00:00,,,,1,,365,3/7/2025 0:00:00,0,3/7/2026 0:00:00,"QA Cabinet","","Western States",,,,,,,,,
+127,"CI-059",,,,,,,,,,,,2/10/2025 14:53:43,0,,,,,,,,,,,,,
+130,"CI-062",,,,,,,,,,,,2/12/2025 9:13:53,0,,,,,,,,,,,,,
+131,"CI-343","NA","Thread Gage .526","QA",3,,,,2/12/2025 0:00:00,2,,,,1,,"GRC",,,,,,,,,,,
+132,"CI-344","599-579-12-1","12 "" Calipers","QA",3,,,,2/12/2025 0:00:00,2,,,,1,,"Out at calibration",,,,,,,,,,,
+133,"CI-345",,,,,,,,,,,,2/25/2025 14:42:17,0,,,,,,,,,,,,,
+134,"CI-346",,,,,,,,,,,,3/3/2025 7:27:01,0,,,,,,,,,,,,,
+135,"",,,,,,,,,,,,3/3/2025 7:29:41,0,,,,,,,,,,,,,
+136,"000001",,,,,,,,,,,,3/3/2025 7:30:25,0,,,,,,,,,,,,,
+137,"000002",,,,,,,,,,,,3/3/2025 7:30:52,0,,,,,,,,,,,,,
+138,"000003",,,,,,,,,,,,3/3/2025 7:31:01,0,,,,,,,,,,,,,
+139,"000004",,,,,,,,,,,,3/3/2025 7:31:30,0,,,,,,,,,,,,,
+140,"000005",,,,,,,,,,,,3/3/2025 7:35:44,0,,,,,,,,,,,,,
+141,"000006",,,,,,,,,,,,3/3/2025 10:35:19,0,,,,,,,,,,,,,
+142,"000007",,,,,,,,,,,,3/3/2025 10:35:57,0,,,,,,,,,,,,,
+143,"CI-347","250074036","Expanded Range Conductivity","QA Cabinet",1,3/13/2025 0:00:00,3/13/2025 0:00:00,,,1,,365,3/13/2025 0:00:00,0,3/13/2026 0:00:00,"QA Cabinet",,"New device came in Calibrated",,,,,,,,,
+144,"CI-348","A124202","Datalogger, Temperature and Humidity ","QA Cabinet",0,3/13/2025 0:00:00,,,,1,,365,3/13/2025 0:00:00,0,3/13/2026 0:00:00,"QA Cabinet",,"Western States Calibration",,,,,,,,,
+145,"CI-349",,,,,,,,,,,,4/2/2025 7:36:03,0,,,,,,,,,,,,,
+146,"CI-350",,,,,,,,,,,,4/24/2025 12:47:15,0,,,,,,,,,,,,,
+147,"CI-351",,,,,,,,,,,,4/24/2025 12:47:41,0,,,,,,,,,,,,,
+148,"CI-352",,,,,,,,,,,,4/24/2025 12:50:12,0,,,,,,,,,,,,,
+149,"CI-353",,,,,,,,,,,,4/24/2025 12:50:15,0,,,,,,,,,,,,,
+150,"CI-354",,,,,,,,,,,,4/30/2025 12:39:44,0,,,,,,,,,,,,,
+151,"CI-355",,,,,,,,,,,,5/6/2025 11:18:12,0,,,,,,,,,,,,,
